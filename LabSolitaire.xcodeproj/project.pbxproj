@@ -101,10 +101,10 @@
 		26AE5BF6144292AF00570ABC /* UnderlineNarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 26AE5BF5144292AF00570ABC /* UnderlineNarrow.png */; };
 		26B1E3E3131D608900DFA4EA /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 26B1E3E1131D608900DFA4EA /* iTunesArtwork */; };
 		26B1E41D131D6E6900DFA4EA /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B1E41C131D6E6900DFA4EA /* Icon-72.png */; };
-		26B3E29C148404EC00C3459E /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E294148404EC00C3459E /* CDAudioManager.m */; };
-		26B3E29D148404EC00C3459E /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E297148404EC00C3459E /* CDOpenALSupport.m */; };
-		26B3E29E148404EC00C3459E /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E299148404EC00C3459E /* CocosDenshion.m */; };
-		26B3E29F148404EC00C3459E /* SimpleAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E29B148404EC00C3459E /* SimpleAudioEngine.m */; };
+		26B3E29C148404EC00C3459E /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E294148404EC00C3459E /* CDAudioManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		26B3E29D148404EC00C3459E /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E297148404EC00C3459E /* CDOpenALSupport.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		26B3E29E148404EC00C3459E /* CocosDenshion.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E299148404EC00C3459E /* CocosDenshion.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		26B3E29F148404EC00C3459E /* SimpleAudioEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E29B148404EC00C3459E /* SimpleAudioEngine.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		26B3E2A91484084700C3459E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B3E2A81484084700C3459E /* OpenAL.framework */; };
 		26B3E2AB1484086600C3459E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26B3E2AA1484086600C3459E /* AudioToolbox.framework */; };
 		26B6709914EF69FA00C8E6B2 /* 1C@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B6708914EF69FA00C8E6B2 /* 1C@2x.png */; };
@@ -316,7 +316,7 @@
 		26AE5BE21442601C00570ABC /* Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Highlight.png; sourceTree = "<group>"; };
 		26AE5BF31442926100570ABC /* UnderlineWide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UnderlineWide.png; sourceTree = "<group>"; };
 		26AE5BF5144292AF00570ABC /* UnderlineNarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UnderlineNarrow.png; sourceTree = "<group>"; };
-		26B1E3E1131D608900DFA4EA /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		26B1E3E1131D608900DFA4EA /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = text; path = iTunesArtwork; sourceTree = "<group>"; };
 		26B1E41C131D6E6900DFA4EA /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		26B3E293148404EC00C3459E /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
 		26B3E294148404EC00C3459E /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
@@ -1097,6 +1097,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -1105,7 +1106,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LabSolitaire_Prefix.pch;
 				INFOPLIST_FILE = "LabSolitaire-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.softdorothy.labsolitaire;
 				PRODUCT_NAME = "Lab Solitaire";
 				PROVISIONING_PROFILE = "";
@@ -1116,13 +1118,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LabSolitaire_Prefix.pch;
 				INFOPLIST_FILE = "LabSolitaire-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.softdorothy.labsolitaire;
 				PRODUCT_NAME = "Lab Solitaire";
 				PROVISIONING_PROFILE = "";
