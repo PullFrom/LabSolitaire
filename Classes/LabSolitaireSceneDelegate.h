@@ -1,17 +1,13 @@
 // =====================================================================================================================
-//  main.m
+//  LabSolitaireSceneDelegate.h
 // =====================================================================================================================
 
 
 #import <UIKit/UIKit.h>
-#import "LabSolitaireAppDelegate.h"
 
 
-int main (int argc, char *argv[])
-{
-	@autoreleasepool
-	{
-		int retVal = UIApplicationMain (argc, argv, nil, NSStringFromClass ([LabSolitaireAppDelegate class]));
-		return retVal;
-	}
-}
+@interface LabSolitaireSceneDelegate : UIResponder <UIWindowSceneDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
+
+@end
