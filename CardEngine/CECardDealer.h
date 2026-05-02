@@ -25,12 +25,12 @@
 	id <CECardDealerDelegate>	_delegate;
 }
 
-@property(nonatomic,retain,readonly)	CEStackView					*sourceStack;
-@property(nonatomic,retain,readonly)	CEStackView					*destStack;
+@property(nonatomic,strong,readonly)	CEStackView					*sourceStack;
+@property(nonatomic,strong,readonly)	CEStackView					*destStack;
 @property(nonatomic)					NSTimeInterval				dealDuration;	// Default: 0.25 seconds.
 @property(nonatomic)					NSTimeInterval				dealDelay;		// Default: 0.20 seconds.
 @property(nonatomic)					BOOL						enableUndoGrouping;
-@property(nonatomic,assign)				id <CECardDealerDelegate>	delegate;		// Optional delegate.
+@property(nonatomic,weak)				id <CECardDealerDelegate>	delegate;		// Optional delegate.
 @property(nonatomic,readonly)			BOOL						dealing;
 
 - (void) dealCardsFromStackView: (CEStackView *) source toStackView: (CEStackView *) dest count: (NSUInteger) count;

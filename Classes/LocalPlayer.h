@@ -22,7 +22,7 @@
 @property(nonatomic,readonly)	NSString	*alias;				// Only valid if using Game Center. Must be authenticated.
 @property(nonatomic,readonly)	BOOL		authenticated;		// Returns YES if authenticated (always YES if local).
 @property(nonatomic,readonly)	BOOL		usingGameCenter;	// Returns YES if LocalPlayer is from Game Center.
-@property(nonatomic,assign)		id <LocalPlayerDelegate>	delegate;	// Delegate called for asynchronous completions.
+@property(nonatomic,weak)		id <LocalPlayerDelegate>	delegate;	// Delegate called for asynchronous completions.
 
 // Creates a LocalPlayer object. If Game Center is available, LocalPlayer initialized with the local player. Otherwise 
 // NSUserDefaults will be used to post and retrieve scores.

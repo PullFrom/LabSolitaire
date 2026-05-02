@@ -81,23 +81,23 @@ enum
 	BOOL						_enableUndoGrouping;
 }
 
-@property(nonatomic,retain)				CEStack						*stack;					// The card stack associated with the view.
+@property(nonatomic,strong)				CEStack						*stack;					// The card stack associated with the view.
 @property(nonatomic)					CEStackViewLayout			layout;					// This property determines the layout of the cards displayed.
 @property(nonatomic)					CECardSize					cardSize;				// Specifies the size of PlayingCardView created.
 @property(nonatomic)					CEStackDragPermissions		dragPermissions;		// Indicates if cards can be dragged to or from stack.
 @property(nonatomic)					BOOL						allowsReordering;		// Enables reordering of cards by user.  Default = NO.
-@property(nonatomic,retain)				UIColor						*borderColor;			// Can be nil to turn off border.
-@property(nonatomic,retain)				UIColor						*fillColor;				// Can be nil to turn off rounded-rect fill.
-@property(nonatomic,retain)				UIColor						*highlightColor;		// Can be nil to turn off highlighting (not recommended).
-@property(nonatomic,retain)				NSString					*label;					// Can be nil to turn off label.
-@property(nonatomic,retain)				UIFont						*labelFont;				// Can be nil to turn off label.
-@property(nonatomic,retain)				UIColor						*labelColor;			// Can be nil to turn off label.
+@property(nonatomic,strong)				UIColor						*borderColor;			// Can be nil to turn off border.
+@property(nonatomic,strong)				UIColor						*fillColor;				// Can be nil to turn off rounded-rect fill.
+@property(nonatomic,strong)				UIColor						*highlightColor;		// Can be nil to turn off highlighting (not recommended).
+@property(nonatomic,strong)				NSString					*label;					// Can be nil to turn off label.
+@property(nonatomic,strong)				UIFont						*labelFont;				// Can be nil to turn off label.
+@property(nonatomic,strong)				UIColor						*labelColor;			// Can be nil to turn off label.
 @property(nonatomic)					CGFloat						cornerRadius;			// Set to -1 for automatic. Default is automatic.
 @property(nonatomic)					BOOL						displaysCount;			// Display count of cards (only for kCEStackViewLayoutStacked). Default = NO.
 @property(nonatomic)					BOOL						highlight;				// During a live drag, view highlights when dragged into and allowed.
-@property(nonatomic,assign)				id <CEStackViewDelegate>	delegate;				// Optional delegate for the view.
-@property(nonatomic,retain)				NSString					*identifier;			// An identifier you can choose to associate a StackView with.
-@property(nonatomic,retain)				NSString					*archiveIdentifier;		// An identifier used to archive the state of a stack. Default is nil.
+@property(nonatomic,weak)				id <CEStackViewDelegate>	delegate;				// Optional delegate for the view.
+@property(nonatomic,strong)				NSString					*identifier;			// An identifier you can choose to associate a StackView with.
+@property(nonatomic,strong)				NSString					*archiveIdentifier;		// An identifier used to archive the state of a stack. Default is nil.
 @property(nonatomic,getter=isOrderly)	BOOL						orderly;				// If not orderly cards may have a random rotation or offset applied.
 @property(nonatomic)					BOOL						enableUndoGrouping;		// Whether to wrap moving multiple cards in an undo group. Default = YES.
 @property(nonatomic,readonly)			BOOL						animationInProgress;	// Returns YES if there is an animation in progress.

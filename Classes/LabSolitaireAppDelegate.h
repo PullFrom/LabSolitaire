@@ -15,8 +15,8 @@
 	LabSolitaireViewController	*_viewController;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow					*_window;
-@property (nonatomic, retain) IBOutlet LabSolitaireViewController	*_viewController;
+@property (nonatomic, strong) IBOutlet UIWindow					*_window;
+@property (nonatomic, strong) IBOutlet LabSolitaireViewController	*_viewController;
 
 @end
 

@@ -17,7 +17,7 @@
 	CECard	*_card;
 	BOOL	_promised;
 }
-@property(nonatomic,retain)				CECard		*card;
+@property(nonatomic,strong)				CECard		*card;
 @property(nonatomic,getter=isPromised)	BOOL		promised;
 @end
 
@@ -37,7 +37,7 @@ static int32_t gWinRandState = 0;
 	NSUInteger	i;
 	id			deck;
 	
-	deck = [[[CEStack alloc] init] autorelease];
+	deck = [[CEStack alloc] init];
 	require (deck, bail);
 	
 	// Add deck of cards.
@@ -48,7 +48,6 @@ static int32_t gWinRandState = 0;
 		// Add card.
 		card = [[CECard alloc] initWithIndex: i];
 		[deck addCardWithoutNotification: card];
-		[card release];
 	}
 	
 bail:
@@ -72,17 +71,6 @@ bail:
 bail:
 	
 	return myself;
-}
-
-// ------------------------------------------------------------------------------------------------------------- dealloc
-
-- (void) dealloc
-{
-	// Release instance variables.
-	[_cards release];
-	
-	// Super.
-	[super dealloc];
 }
 
 #pragma mark ------ card accessors
@@ -199,7 +187,7 @@ bail:
 	NSUInteger		count, i;
 	
 	// Create empty array.
-	array = [[[NSMutableArray alloc] initWithCapacity: 3] autorelease];
+	array = [[NSMutableArray alloc] initWithCapacity: 3];
 	
 	// For each card, add an NSNumber representing the value of the card to array.
 	count = [self numberOfCards];
@@ -316,7 +304,6 @@ bail:
 	cardData = [[CardData alloc] init];
 	[cardData setCard: card];
 	[_cards insertObject: cardData atIndex: index];
-	[cardData release];
 	
 	// Notify observers that the card stack was changed.
 	[[NSNotificationCenter defaultCenter] postNotificationName: @"StackDidChangeCount" object: self userInfo: nil];
@@ -342,7 +329,6 @@ bail:
 		if (random)
 			[card randomizeTransform];
 		[self addCardWithoutNotification: card];
-		[card release];
 	}
 	
 	// Notify observers that the card stack was changed.
@@ -379,14 +365,13 @@ bail:
 		card = [[CECard  alloc] initWithIndex: cardIndex & kCardIndexMask];
 		if ((cardIndex & kCardIsFaceUpFlag) == kCardIsFaceUpFlag)
 			[card setFaceUp: YES];
-		
+
 		// BUG: Randomizing the transform needs to be done *before* the card is added to the stack for some reason.
 		if (randomize)
 			[card randomizeTransform];
-		
+
 		// Add card.
 		[self addCardWithoutNotification: card];
-		[card release];
 	}
 	
 	// Notify observers that the card stack was changed.
@@ -678,10 +663,9 @@ bail:
 	cardData = [[CardData alloc] init];
 	[cardData setCard: card];
 	[_cards addObject: cardData];
-	[cardData release];
-	
+
 bail:
-	
+
 	return;
 }
 
@@ -703,7 +687,6 @@ bail:
 	[cardData setCard: card];
 	[cardData setPromised: YES];
 	[_cards addObject: cardData];
-	[cardData release];
 	
 	_cardPromised = YES;
 	

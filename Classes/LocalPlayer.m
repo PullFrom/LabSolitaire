@@ -43,18 +43,6 @@
 	return myself;
 }
 
-// ------------------------------------------------------------------------------------------------------------- dealloc
-
-- (void) dealloc
-{
-	// Release instance vars.
-	[_playerID release];
-	[_alias release];
-	
-	// Super.
-	[super dealloc];
-}
-
 // ------------------------------------------------------------------------------------------ postLocalScore:forCategory
 
 - (void) postLocalScore: (NSInteger) score forCategory: (NSString *) category
@@ -128,7 +116,7 @@ bail:
 		success = [defaults synchronize];
 		
 		// Create object to report score. Assign points.
-		scoreReporter = [[[GKScore alloc] initWithLeaderboardIdentifier: category] autorelease];
+		scoreReporter = [[GKScore alloc] initWithLeaderboardIdentifier: category];
 		scoreReporter.value = score;
 		
 		// Report score.
@@ -514,16 +502,8 @@ bail:
 			}
 			else
 			{
-				if (_playerID)
-				{
-					[_playerID release];
-					_playerID = nil;
-				}
-				if (_alias)
-				{
-					[_alias release];
-					_alias = nil;
-				}
+				_playerID = nil;
+				_alias = nil;
 				_authenticated = YES;
 				_usingGameCenter = NO;
 				

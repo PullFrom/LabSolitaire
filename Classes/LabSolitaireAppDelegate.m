@@ -58,13 +58,4 @@
 	printf ("applicationDidReceiveMemoryWarning\n");
 }
 
-// ------------------------------------------------------------------------------------------------------------- dealloc
-
-- (void) dealloc
-{
-	[_viewController release];
-	[_window release];
-	[super dealloc];
-}
-
 @end

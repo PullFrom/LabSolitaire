@@ -7,12 +7,10 @@
 
 
 int main (int argc, char *argv[])
-{    
-	NSAutoreleasePool	*pool;
-	
-	pool = [[NSAutoreleasePool alloc] init];
-	int retVal = UIApplicationMain (argc, argv, nil, @"LabSolitaireAppDelegate");
-	[pool release];
-	
-	return retVal;
+{
+	@autoreleasepool
+	{
+		int retVal = UIApplicationMain (argc, argv, nil, @"LabSolitaireAppDelegate");
+		return retVal;
+	}
 }
