@@ -441,6 +441,7 @@
 		4C1616F62FA61289002DEE82 /* LSAudioEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSAudioEngine.m; sourceTree = "<group>"; };
 		4C1616F82FA67749002DEE82 /* LabSolitaireSceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabSolitaireSceneDelegate.h; sourceTree = "<group>"; };
 		4C1616F92FA67749002DEE82 /* LabSolitaireSceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabSolitaireSceneDelegate.m; sourceTree = "<group>"; };
+		4C85D9DC2FA6A947006E136A /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/LabSolitaireViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1042,6 +1043,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				2641ED7F140818FD00709D17 /* en */,
+				4C85D9DC2FA6A947006E136A /* ja */,
 			);
 			name = LabSolitaireViewController.xib;
 			sourceTree = "<group>";
@@ -1074,6 +1076,7 @@
 				INFOPLIST_FILE = "LabSolitaire-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.softdorothy.labsolitaire;
 				PRODUCT_NAME = "Lab Solitaire";
 				PROVISIONING_PROFILE = "";
@@ -1093,6 +1096,7 @@
 				INFOPLIST_FILE = "LabSolitaire-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.softdorothy.labsolitaire;
 				PRODUCT_NAME = "Lab Solitaire";
 				PROVISIONING_PROFILE = "";
