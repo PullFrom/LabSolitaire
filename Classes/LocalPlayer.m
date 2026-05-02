@@ -160,7 +160,7 @@ bail:
 		*score = 0;
 	
 	// Param check.
-	require (category, bail);
+	__Require (category, bail);
 	
 	// Get standard user defaults; look for player ID (or 'local') sub-dictionary.
 	defaults = [NSUserDefaults standardUserDefaults];
@@ -194,20 +194,20 @@ bail:
 - (BOOL) retrieveLeaderboardScores: (NSUInteger) count forCategory: (NSString *) category friendsOnly: (BOOL) friends
 {
 	GKLeaderboard	*leaderboardRequest;
-	BOOL			success = NO;
-	
+
 	// Param checking.
-	require (count <= 75, bail);
-	require (category, bail);
-	
+	if (count > 75 || category == nil)
+		return NO;
+
 	// We have to have been authenticated and using Game Center.
 	if ((_authenticated == NO) || (_usingGameCenter == NO))
-		goto bail;
-	
+		return NO;
+
 	// Create leaderboard object to request global scores.
 	leaderboardRequest = [[GKLeaderboard alloc] init];
-	require (leaderboardRequest, bail);
-	
+	if (leaderboardRequest == nil)
+		return NO;
+
 	// Leaderboard attributes.
 	leaderboardRequest.identifier = category;
 	if (friends)
@@ -215,12 +215,12 @@ bail:
 	else
 		leaderboardRequest.playerScope = GKLeaderboardPlayerScopeGlobal;
 	leaderboardRequest.timeScope = GKLeaderboardTimeScopeAllTime;
-	
-	// An odd bug, if a player ID comes back as "G: ANONYMOUS", we will fail to get 
+
+	// An odd bug, if a player ID comes back as "G: ANONYMOUS", we will fail to get
 	// their scores later (in -[retrieveLeaderboardScoresForPlayerIDs:forCategory:] below).
 	// I'm going to request more than the client asked for and filter out 'anonymous' players.
 	leaderboardRequest.range = NSMakeRange (1, count + 8);
-	
+
 	// Load the scores.
 	[leaderboardRequest loadScoresWithCompletionHandler: ^(NSArray *scores, NSError *error)
 	{
@@ -262,12 +262,8 @@ bail:
 		if ([_delegate respondsToSelector: @selector (localPlayer:retrievedLeaderboardScores:playerIDs:forCategory:)])
 			[_delegate localPlayer: self retrievedLeaderboardScores: values playerIDs: players forCategory: category];
 	}];
-	
-	success = YES;
-	
-bail:
-	
-	return success;
+
+	return YES;
 }
 
 // ------------------------------------------------------------------- retrieveLeaderboardScoresForPlayerIDs:forCategory
@@ -275,23 +271,23 @@ bail:
 - (BOOL) retrieveLeaderboardScoresForPlayerIDs: (NSArray *) playerIDs forCategory: (NSString *) category
 {
 	GKLeaderboard	*leaderboardRequest;
-	BOOL			success = NO;
-	
+
 	// Param checking.
-	require (playerIDs, bail);
-	require (category, bail);
-	
+	if (playerIDs == nil || category == nil)
+		return NO;
+
 	// We have to have been authenticated and using Game Center.
 	if ((_authenticated == NO) || (_usingGameCenter == NO))
-		goto bail;
-	
+		return NO;
+
 	// Create leaderboard object to request global scores.
 	leaderboardRequest = [[GKLeaderboard alloc] initWithPlayerIDs: playerIDs];
-	require (leaderboardRequest, bail);
-	
+	if (leaderboardRequest == nil)
+		return NO;
+
 	// Leaderboard attributes.
 	leaderboardRequest.identifier = category;
-	
+
 	// Load the scores.
 	[leaderboardRequest loadScoresWithCompletionHandler: ^(NSArray *scores, NSError *error)
 	{
@@ -341,28 +337,19 @@ bail:
 		if ([_delegate respondsToSelector: @selector (localPlayer:retrievedLeaderboardScores:playerIDs:forCategory:)])
 			[_delegate localPlayer: self retrievedLeaderboardScores: values playerIDs: players forCategory: category];
 	}];
-	
-	success = YES;
-	
-bail:
-	
-	return success;
+
+	return YES;
 }
 
 // ----------------------------------------------------------------------------------------- retrieveAliasesForPlayerIDs
 
 - (BOOL) retrieveAliasesForPlayerIDs: (NSArray *) playerIDs
 {
-	BOOL	success = NO;
-	
 	// We have to have been authenticated and using Game Center.
 	if ((_authenticated == NO) || (_usingGameCenter == NO))
-		goto bail;
-	
-	success = YES;
-	
-	[GKPlayer loadPlayersForIdentifiers: playerIDs withCompletionHandler: ^(NSArray *players, NSError *error)
-	{
+		return NO;
+
+	[GKPlayer loadPlayersForIdentifiers: playerIDs withCompletionHandler: ^(NSArray *players, NSError *error) {
 		NSMutableArray	*aliases = nil;
 		
 		if (error != nil)
@@ -402,10 +389,8 @@ bail:
 		if ([_delegate respondsToSelector: @selector (localPlayer:retrievedAliasesForPlayerIDs:)])
 			[_delegate localPlayer: self retrievedAliasesForPlayerIDs: aliases];
 	}];
-	
-bail:
-	
-	return success;
+
+	return YES;
 }
 
 // ------------------------------------------------------------------- retrieveLeaderboardScoreForLocalPlayerForCategory
@@ -413,22 +398,23 @@ bail:
 - (BOOL) retrieveLeaderboardScoreForLocalPlayerForCategory: (NSString *) category
 {
 	GKLeaderboard	*leaderboardRequest;
-	BOOL			success = NO;
-	
+
 	// Param checking.
-	require (category, bail);
-	
+	if (category == nil)
+		return NO;
+
 	// We have to have been authenticated and using Game Center.
 	if ((_authenticated == NO) || (_usingGameCenter == NO))
-		goto bail;
-	
+		return NO;
+
 	// Create leaderboard object to request global scores.
 	leaderboardRequest = [[GKLeaderboard alloc] initWithPlayerIDs: [NSArray arrayWithObject: _playerID]];
-	require (leaderboardRequest, bail);
-	
+	if (leaderboardRequest == nil)
+		return NO;
+
 	// Leaderboard attributes.
 	leaderboardRequest.identifier = category;
-	
+
 	// Load the scores.
 	[leaderboardRequest loadScoresWithCompletionHandler: ^(NSArray *scores, NSError *error)
 	{
@@ -450,12 +436,8 @@ bail:
 				[_delegate localPlayer: self retrievedLeaderboardScoreForLocalPlayer: oneScore.value forCategory: category];
 		}
 	}];
-	
-	success = YES;
-	
-bail:
-	
-	return success;
+
+	return YES;
 }
 
 @end

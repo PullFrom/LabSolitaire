@@ -15,7 +15,7 @@
 	NSString			*_alias;
 	BOOL				_authenticated;
 	BOOL				_usingGameCenter;
-	id					_delegate;
+	__weak id			_delegate;
 }
 
 @property(nonatomic,readonly)	NSString	*playerID;			// Only valid if using Game Center. Must be authenticated.

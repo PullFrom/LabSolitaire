@@ -39,7 +39,7 @@ static NSUndoManager	*_gSharedUndoManager = nil;
 	CGRect	frame;
 	
 	// Get application frame.
-	frame = [[UIScreen mainScreen] applicationFrame];
+	frame = [[UIScreen mainScreen] bounds];
 	
 	if (orientation == UIInterfaceOrientationPortrait)
 	{
@@ -119,7 +119,7 @@ static NSUndoManager	*_gSharedUndoManager = nil;
 	
 	// Super.
 	myself = [super initWithFrame: frame];
-	require (myself, bail);
+	__Require (myself, bail);
 	
 bail:
 	
@@ -156,9 +156,17 @@ bail:
 
 - (void) drawRect: (CGRect) rect
 {
-	UIInterfaceOrientation	orientation;
-	
-	orientation = [[UIApplication sharedApplication] statusBarOrientation];
+	UIInterfaceOrientation	orientation = UIInterfaceOrientationPortrait;
+
+	for (UIScene *scene in [[UIApplication sharedApplication] connectedScenes])
+	{
+		if ([scene isKindOfClass: [UIWindowScene class]] &&
+			scene.activationState == UISceneActivationStateForegroundActive)
+		{
+			orientation = ((UIWindowScene *) scene).interfaceOrientation;
+			break;
+		}
+	}
 	if (UIInterfaceOrientationIsPortrait (orientation))
 	{
 		if (_portraitImagePath)

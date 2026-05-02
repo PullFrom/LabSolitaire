@@ -64,7 +64,7 @@ enum
 	NSInteger					_highlightedViewIndex;		// If our own stack is highlighted, the card view highlighted.
 	CEStackDragPermissions		_dragPermissions;			// Simple drag permissions.  More complex rules done via delegate.
 	BOOL						_allowsReordering;			// Whether cards within a stack can be re-ordered by the user.
-	id <CEStackViewDelegate>	_delegate;
+	__weak id <CEStackViewDelegate>	_delegate;
 	id <CEStackViewDelegate>	_privateDelegate;
 	int							_touchState;				// State of the touch event.
 	NSUInteger					_cardIndexRevealed;			// Index of the card that is being revealed.

@@ -1493,7 +1493,7 @@ skipAudio:
 	[self _positionSubviewBottomAndCentered: subview];
 	
 	// Fade-out the previous view while fading in the new one.
-	[UIView beginAnimations: @"CrossfadeInfoSubview" context: _aboutView];
+	[UIView beginAnimations: @"CrossfadeInfoSubview" context: (__bridge void *) _aboutView];
 	[UIView setAnimationDelegate: self];
 	[UIView setAnimationDidStopSelector: @selector (animationStopped:finished:context:)];
 	subview.alpha = 1.0;
@@ -1725,7 +1725,7 @@ skipAudio:
 		[self updateLocalStatisticsInterface];
 		
 		// Animate-out the view sliding out while the dark view becomes clear again.
-		[UIView beginAnimations: @"CrossfadeInfoSubview" context: _gameOverView];
+		[UIView beginAnimations: @"CrossfadeInfoSubview" context: (__bridge void *) _gameOverView];
 		[UIView setAnimationDelegate: self];
 		[UIView setAnimationDidStopSelector: @selector (animationStopped:finished:context:)];
 		_gameOverView.alpha = 1.0;
@@ -1819,7 +1819,7 @@ skipAudio:
 	else if ([animationID isEqualToString: @"CrossfadeInfoSubview"])
 	{
 		[_currentInfoView removeFromSuperview];
-		_currentInfoView = context;
+		_currentInfoView = (__bridge UIView *) context;
 		[_darkView bringSubviewToFront: _currentInfoView];
 	}
 }

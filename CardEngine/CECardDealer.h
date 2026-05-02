@@ -22,7 +22,7 @@
 	BOOL						_dealing;
 	BOOL						_enableUndoGrouping;
 	NSTimer						*_dealTimer;
-	id <CECardDealerDelegate>	_delegate;
+	__weak id <CECardDealerDelegate>	_delegate;
 }
 
 @property(nonatomic,strong,readonly)	CEStackView					*sourceStack;

@@ -58,7 +58,7 @@ NSString *const StackViewCardReleasedNotification = @"StackViewCardReleased";
 	
 	// Super.
 	myself = [super initWithFrame: frame];
-	require (myself, bail);
+	__Require (myself, bail);
 	
 	// Default instance variable values.
 	_borderColor = [[UIColor alloc] initWithRed: 1. green: 1. blue: 1. alpha: 0.5];
@@ -475,9 +475,9 @@ bail:
 - (void) dealCard: (CECard *) card toStackView: (CEStackView *) stack faceUp: (BOOL) faceUp duration: (NSTimeInterval) duration
 {
 	// Param check.
-	require (stack, bail);
-	require (_stack, bail);
-	require ([_stack stackContainsCard: card], bail);
+	__Require (stack, bail);
+	__Require (_stack, bail);
+	__Require ([_stack stackContainsCard: card], bail);
 	
 	// Register for 'undo'.
 	[self registerDealCard: card stackView: stack duration: duration];
@@ -504,7 +504,7 @@ bail:
 		
 		// Get card view that is going to animate.
 		sourceView = [self cardViewForCard: card];
-		require (sourceView, abortAnimation);
+		__Require (sourceView, abortAnimation);
 		
 		// Determine the coordinate to move from.
 		point = sourceView.center;
@@ -565,8 +565,8 @@ bail:
 - (void) flipCard: (CECard *) card faceUp: (BOOL) faceUp duration: (NSTimeInterval) duration
 {
 	// Param check.
-	require (card, bail);
-	require (_stack, bail);
+	__Require (card, bail);
+	__Require (_stack, bail);
 	
 	// Skip out if this is not our card.
 	if ([_stack stackContainsCard: card] == NO)
@@ -599,7 +599,7 @@ bail:
 		
 		// Get the bounds for the flipping card.
 		sourceView = [self cardViewForCard: card];
-		require (sourceView, abortAnimation);
+		__Require (sourceView, abortAnimation);
 		frame = [self convertRect: [sourceView frame] toView: [self superview]];
 		
 		// Add frame to animation dictionary.
@@ -1792,12 +1792,12 @@ bail:
 		NSUInteger	cardIndex;
 		
 		// Sanity check (not needed I think).
-		require (_stack, bail);
-		require ([_stack numberOfCards] > 0, bail);
+		__Require (_stack, bail);
+		__Require ([_stack numberOfCards] > 0, bail);
 		
 		// Get card index for touch location.
 		cardIndex = [self cardIndexToRevealAtLocation: [touch locationInView: self]];
-		require (cardIndex != NSNotFound, bail);
+		__Require (cardIndex != NSNotFound, bail);
 		
 		// No reveal on top card.  Otherwise, yes.
 		if (cardIndex == ([_stack numberOfCards] - 1))
@@ -1882,13 +1882,13 @@ bail:
 	CECardView	*view = nil;
 	
 	// Param check.
-	require (index != NSNotFound, bail);
+	__Require (index != NSNotFound, bail);
 	
 	// Stacked layout does not have a one-to-one correlation between views and cards.  Special case.
 	if (_layout == kCEStackViewLayoutStacked)
 	{
 		// Sanity check: index ought to correspond to the top card.
-		require ((index + 1) == [_stack numberOfCards], bail);
+		__Require ((index + 1) == [_stack numberOfCards], bail);
 		
 		// Top view is for top card.
 		view = [_cardViews lastObject];
@@ -1896,10 +1896,10 @@ bail:
 	else
 	{
 		// Sanity check: index should be within range.
-		require (index < [_stack numberOfCards], bail);
+		__Require (index < [_stack numberOfCards], bail);
 		
 		// Second sanity check, index should be within range of the card views.
-		require (index < [_cardViews count], bail);
+		__Require (index < [_cardViews count], bail);
 		
 		// Card index and view order are one-to-one.
 		view = [_cardViews objectAtIndex: index];
@@ -1918,7 +1918,7 @@ bail:
 	NSUInteger	count, i;
 	
 	// Param check.
-	require (card, bail);
+	__Require (card, bail);
 	
 	// Walk through card views looking for the indicated card.
 	count = [_cardViews count];
@@ -1944,7 +1944,7 @@ bail:
 	CGRect		ourBounds;
 	
 	// Param check.
-	require (count > 0, bail);
+	__Require (count > 0, bail);
 	
 	// Get base card bounds.
 	cardBounds.origin = CGPointMake (0.0, 0.0);
@@ -2697,7 +2697,7 @@ bail:
 	view = [dictionary objectForKey: @"view"];
 	
 	// Set up animation using the dictionary passed in as a reference.
-	[UIView beginAnimations: nil context: dictionary];
+	[UIView beginAnimations: nil context: (__bridge void *) dictionary];
 	[UIView setAnimationDelegate: self];
 	[UIView setAnimationDidStopSelector: @selector (animationStopped:finished:context:)];
 	
@@ -2731,7 +2731,7 @@ bail:
 	_animationRefCount -= 1;
 	
 	// Call handle animation again.
-	[self handleAnimation: (NSMutableDictionary *) context];
+	[self handleAnimation: (__bridge NSMutableDictionary *) context];
 }
 
 #pragma mark ------ notifications
