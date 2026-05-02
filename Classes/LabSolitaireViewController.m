@@ -7,7 +7,7 @@
 #import "CEStackViewPrivate.h"
 #import "LabSolitaireViewController.h"
 #import "LSStackView.h"
-#import "SimpleAudioEngine.h"
+#import "LSAudioEngine.h"
 
 
 #define DISPLAY_OUTLINE_IN_TABLEAU		0
@@ -818,20 +818,20 @@ enum
 	_worriedCards = [[NSMutableArray alloc] initWithCapacity: 3];
 	
 	// Load sounds.
-	[[SimpleAudioEngine sharedEngine] preloadEffect: @"Shuffle.wav"];
+	[[LSAudioEngine sharedEngine] preloadEffect: @"Shuffle.wav"];
 	for (i = 0; i < kNumCardDrawSounds; i++)
 	{
-		[[SimpleAudioEngine sharedEngine] preloadEffect: [NSString stringWithFormat: @"CardDraw%d.wav", i]];
+		[[LSAudioEngine sharedEngine] preloadEffect: [NSString stringWithFormat: @"CardDraw%d.wav", i]];
 	}
 	for (i = 0; i < kNumCardPlaceSounds; i++)
 	{
-		[[SimpleAudioEngine sharedEngine] preloadEffect: [NSString stringWithFormat: @"CardPlace%d.wav", i]];
+		[[LSAudioEngine sharedEngine] preloadEffect: [NSString stringWithFormat: @"CardPlace%d.wav", i]];
 	}
-	[[SimpleAudioEngine sharedEngine] preloadEffect: @"ClickOpen.wav"];
-	[[SimpleAudioEngine sharedEngine] preloadEffect: @"ClickClose.wav"];
-	[[SimpleAudioEngine sharedEngine] preloadEffect: @"Blip.wav"];
-	[[SimpleAudioEngine sharedEngine] preloadEffect: @"Buzz.wav"];
-	[[SimpleAudioEngine sharedEngine] preloadEffect: @"Babip.wav"];
+	[[LSAudioEngine sharedEngine] preloadEffect: @"ClickOpen.wav"];
+	[[LSAudioEngine sharedEngine] preloadEffect: @"ClickClose.wav"];
+	[[LSAudioEngine sharedEngine] preloadEffect: @"Blip.wav"];
+	[[LSAudioEngine sharedEngine] preloadEffect: @"Buzz.wav"];
+	[[LSAudioEngine sharedEngine] preloadEffect: @"Babip.wav"];
 	
 skipAudio:
 	
@@ -933,14 +933,14 @@ skipAudio:
 {
 	if (_playSounds)
 	{
-		[[SimpleAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
+		[[LSAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
 	}
 	
 	if ((_playedAtleastOneCard == NO) || ([self allCardsArePutAway]))
 	{
 		if (_playSounds)
 		{
-			[[SimpleAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
+			[[LSAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
 		}
 		
 		// If the game is over, no need for alert.
@@ -979,11 +979,11 @@ skipAudio:
 	{
 		if ([[CETableView sharedCardUndoManager] canUndo])
 		{
-			[[SimpleAudioEngine sharedEngine] playEffect: @"Blip.wav"];
+			[[LSAudioEngine sharedEngine] playEffect: @"Blip.wav"];
 		}
 		else
 		{
-			[[SimpleAudioEngine sharedEngine] playEffect: @"Buzz.wav"];
+			[[LSAudioEngine sharedEngine] playEffect: @"Buzz.wav"];
 		}
 	}
 	
@@ -1005,7 +1005,7 @@ skipAudio:
 		
 		if (_playSounds)
 		{
-			[[SimpleAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
+			[[LSAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
 		}
 		
 		_undoAllAlertOpen = YES;
@@ -1294,7 +1294,7 @@ skipAudio:
 {
 	if (_playSounds)
 	{
-		[[SimpleAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
+		[[LSAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
 	}
 	
 	_infoViewIsOpen = YES;
@@ -1484,7 +1484,7 @@ skipAudio:
 {
 	if (_playSounds)
 	{
-		[[SimpleAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
+		[[LSAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
 	}
 	
 	// Switch to display the subview.
@@ -1535,7 +1535,7 @@ skipAudio:
 	
 	if (_playSounds)
 	{
-		[[SimpleAudioEngine sharedEngine] playEffect: @"ClickClose.wav"];
+		[[LSAudioEngine sharedEngine] playEffect: @"ClickClose.wav"];
 	}
 	
     [_aboutViewController dismissViewControllerAnimated: YES completion: nil];
@@ -1592,12 +1592,12 @@ skipAudio:
 	// Sound effect.
 	if ((_playSounds) && (_autoPutaway == YES))
 	{
-		[[SimpleAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
+		[[LSAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
 	}
 	
 	if ((_playSounds) && (_autoPutaway == NO))
 	{
-		[[SimpleAudioEngine sharedEngine] playEffect: @"ClickClose.wav"];
+		[[LSAudioEngine sharedEngine] playEffect: @"ClickClose.wav"];
 	}
 	
 	// Update UI.
@@ -1624,7 +1624,7 @@ skipAudio:
 	
 	if (_playSounds)
 	{
-		[[SimpleAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
+		[[LSAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
 	}
 	
 	// Update UI.
@@ -1648,7 +1648,7 @@ skipAudio:
 	// Sound effect.
 	if (_playSounds)
 	{
-		[[SimpleAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
+		[[LSAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
 	}
 	
 	// Update UI.
@@ -1696,7 +1696,7 @@ skipAudio:
 	
 	if (_playSounds)
 	{
-		[[SimpleAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
+		[[LSAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
 	}
 	
 	// Update UI.
@@ -1714,7 +1714,7 @@ skipAudio:
 		// Player won sound.
 		if (_playSounds)
 		{
-			[[SimpleAudioEngine sharedEngine] playEffect: @"Babip.wav"];
+			[[LSAudioEngine sharedEngine] playEffect: @"Babip.wav"];
 		}
 		
 		// Switch to display the "game over view".
@@ -1768,7 +1768,7 @@ skipAudio:
 			// Player won sound.
 			if (_playSounds)
 			{
-				[[SimpleAudioEngine sharedEngine] playEffect: @"Babip.wav"];
+				[[LSAudioEngine sharedEngine] playEffect: @"Babip.wav"];
 			}
 		}
 	}
@@ -1809,7 +1809,7 @@ skipAudio:
 			// Shuffle sound.
 			if (_playSounds)
 			{
-				[[SimpleAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
+				[[LSAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
 			}
 			
 			// Deal new hand.
@@ -1920,7 +1920,7 @@ skipAudio:
 		{
 			if (_playSounds)
 			{
-				[[SimpleAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
+				[[LSAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
 			}
 			
 			[self resetTable: YES];
@@ -1934,7 +1934,7 @@ skipAudio:
 		{
 			if (_playSounds)
 			{
-				[[SimpleAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
+				[[LSAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
 			}
 			
 			[self resetTable: NO];
@@ -2355,7 +2355,7 @@ done:
 {
 	// Play card drawn sound.
 	if (_playSounds)
-		[[SimpleAudioEngine sharedEngine] playEffect: [NSString stringWithFormat: @"CardDraw%d.wav", CERandomInt (kNumCardDrawSounds)]];
+		[[LSAudioEngine sharedEngine] playEffect: [NSString stringWithFormat: @"CardDraw%d.wav", CERandomInt (kNumCardDrawSounds)]];
 }
 
 // -------------------------------------------------------------------------------------------------------- cardReleased
@@ -2370,7 +2370,7 @@ done:
 	
 	// Play card placed sound.
 	if (_playSounds)
-		[[SimpleAudioEngine sharedEngine] playEffect: [NSString stringWithFormat: @"CardPlace%d.wav", CERandomInt (kNumCardPlaceSounds)]];
+		[[LSAudioEngine sharedEngine] playEffect: [NSString stringWithFormat: @"CardPlace%d.wav", CERandomInt (kNumCardPlaceSounds)]];
 }
 
 // -------------------------------------------------------------------------------------------------------- putawayTimer
