@@ -1292,11 +1292,17 @@ skipAudio:
 
 - (void) info: (id) sender
 {
+	if (_infoViewIsOpen)
+	{
+		[self _addInfoSubview: _aboutView];
+		return;
+	}
+
 	if (_playSounds)
 	{
 		[[LSAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
 	}
-	
+
 	_infoViewIsOpen = YES;
 	_wasAutoPutaway = _autoPutaway;
 	_wasAutoPutawayMode = _autoPutawayMode;
@@ -1312,9 +1318,6 @@ skipAudio:
 		// Update the UI.
 		[self updateGlobalScoresInterface];
 	}
-	
-    [_aboutViewController setModalPresentationStyle: UIModalPresentationOverCurrentContext];
-    [self presentViewController: _aboutViewController animated: YES completion: nil];
 	
 	// Initially begin with "about view" being displayed.
 	_currentInfoView = _aboutView;
@@ -1493,7 +1496,7 @@ skipAudio:
 	[self _positionSubviewBottomAndCentered: subview];
 	
 	// Fade-out the previous view while fading in the new one.
-	[UIView beginAnimations: @"CrossfadeInfoSubview" context: (__bridge void *) _aboutView];
+	[UIView beginAnimations: @"CrossfadeInfoSubview" context: (__bridge void *) subview];
 	[UIView setAnimationDelegate: self];
 	[UIView setAnimationDidStopSelector: @selector (animationStopped:finished:context:)];
 	subview.alpha = 1.0;
@@ -1538,8 +1541,6 @@ skipAudio:
 		[[LSAudioEngine sharedEngine] playEffect: @"ClickClose.wav"];
 	}
 	
-    [_aboutViewController dismissViewControllerAnimated: YES completion: nil];
-    
 	mainBounds = [[UIScreen mainScreen] bounds];
 	portrait = UIInterfaceOrientationIsPortrait ([UIApplication sharedApplication].statusBarOrientation);
 	

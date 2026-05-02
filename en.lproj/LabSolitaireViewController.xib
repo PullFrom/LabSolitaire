@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LabSolitaireViewController">
             <connections>
                 <outlet property="_aboutView" destination="4" id="OpM-jN-c2E"/>
-                <outlet property="_aboutViewController" destination="iVc-L5-Qkp" id="0dg-ev-ImN"/>
                 <outlet property="_allPutawayButton" destination="181" id="184"/>
                 <outlet property="_allScopeButton" destination="218" id="230"/>
                 <outlet property="_displayScopeLabel" destination="225" id="265"/>

@@ -53,7 +53,6 @@
 	UIView						*_darkView;
 	UIView						*_infoView;
 	UIView						*_overlayingView;							// Weak reference.
-	IBOutlet UIViewController	*_aboutViewController;
 	IBOutlet UIView				*_aboutView;
 	IBOutlet UIView				*_settingsView;
 	IBOutlet UIView				*_rulesView;
