@@ -2697,7 +2697,7 @@ bail:
 	view = [dictionary objectForKey: @"view"];
 	
 	// Set up animation using the dictionary passed in as a reference.
-	[UIView beginAnimations: nil context: (__bridge void *) dictionary];
+	[UIView beginAnimations: nil context: (__bridge_retained void *) dictionary];
 	[UIView setAnimationDelegate: self];
 	[UIView setAnimationDidStopSelector: @selector (animationStopped:finished:context:)];
 	
@@ -2731,7 +2731,7 @@ bail:
 	_animationRefCount -= 1;
 	
 	// Call handle animation again.
-	[self handleAnimation: (__bridge NSMutableDictionary *) context];
+	[self handleAnimation: (__bridge_transfer NSMutableDictionary *) context];
 }
 
 #pragma mark ------ notifications
