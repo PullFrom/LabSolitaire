@@ -727,7 +727,6 @@ enum
 		[_cellViews[i] setIdentifier: @"Cell"];
 		[_cellViews[i] setArchiveIdentifier: [NSString stringWithFormat: @"Cell%d", i]];
 		[(CETableView *) self.view addSubview: _cellViews[i]];
-		[_cellViews[i] release];
 	}
 	
 	// Create foundations.
@@ -753,7 +752,6 @@ enum
 		[_foundationViews[i] setIdentifier: @"Foundation"];
 		[_foundationViews[i] setArchiveIdentifier: [NSString stringWithFormat: @"Foundation%d", i]];
 		[(CETableView *) self.view addSubview: _foundationViews[i]];
-		[_foundationViews[i] release];
 	}
 	
 	// Create tableau.
@@ -781,7 +779,6 @@ enum
 		[_tableauViews[i] setArchiveIdentifier: [NSString stringWithFormat: @"Tableau%d", i]];
 		[_tableauViews[i] setOrderly: NO];
 		[(CETableView *) self.view addSubview: _tableauViews[i]];
-		[_tableauViews[i] release];
 	}
 	
 	// Layout the buttons.
@@ -958,7 +955,6 @@ skipAudio:
 				cancelButtonTitle: NEW_GAME_CANCEL_BUTTON otherButtonTitles: NEW_GAME_BUTTON, nil];
 		alert.tag = kResetTableAlertTag;
 		[alert show];
-		[alert release];
 	}
 }
 
@@ -1019,7 +1015,6 @@ skipAudio:
 				cancelButtonTitle: UNDO_CANCEL_BUTTON otherButtonTitles: UNDO_ALL_BUTTON, nil];
 		alert.tag = kUndoAllAlertTag;
 		[alert show];
-		[alert release];
 	}
 }
 
@@ -1888,11 +1883,9 @@ skipAudio:
 
 - (void) viewDidUnload
 {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-	[_newButton release];
-	[_undoButton release];
-	[_infoButton release];
+	_newButton = nil;
+	_undoButton = nil;
+	_infoButton = nil;
 }
 
 // ------------------------------------------------------------------------------------------------------------- dealloc
@@ -1901,7 +1894,7 @@ skipAudio:
 {
 	// No more observing.
 	[[NSNotificationCenter defaultCenter] removeObserver: self];
-	
+
 	// Clean up timers.
 	if (_putawayTimer)
 	{
@@ -1913,9 +1906,6 @@ skipAudio:
 		[_undoHeldTimer invalidate];
 	}
 	_undoHeldTimer = nil;
-	
-	// Super.
-	[super dealloc];
 }
 
 
@@ -2421,7 +2411,6 @@ done:
 	[_leaderboardPlayerIDs removeAllObjects];
 	[_leaderboardGamesPlayed removeAllObjects];
 	[_leaderboardGamesWon removeAllObjects];
-	[_leaderboardAliases release];
 	_leaderboardAliases = nil;
 	_playerLeaderboardIndex = NSNotFound;
 	
@@ -2524,7 +2513,6 @@ done:
 		}
 		else
 		{
-			[_leaderboardAliases release];
 			_leaderboardAliases = nil;
 			[self updateGlobalScoresInterface];
 		}
@@ -2557,7 +2545,6 @@ done:
 
 - (void) localPlayer: (LocalPlayer *) player retrievedAliasesForPlayerIDs: (NSArray *) aliases
 {
-	[_leaderboardAliases release];
 	_leaderboardAliases = nil;
 	if (aliases)
 		_leaderboardAliases = [aliases copy];

@@ -99,7 +99,6 @@
 		26AE5BE31442601C00570ABC /* Highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 26AE5BE21442601C00570ABC /* Highlight.png */; };
 		26AE5BF41442926100570ABC /* UnderlineWide.png in Resources */ = {isa = PBXBuildFile; fileRef = 26AE5BF31442926100570ABC /* UnderlineWide.png */; };
 		26AE5BF6144292AF00570ABC /* UnderlineNarrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 26AE5BF5144292AF00570ABC /* UnderlineNarrow.png */; };
-		26B1E3E3131D608900DFA4EA /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 26B1E3E1131D608900DFA4EA /* iTunesArtwork */; };
 		26B1E41D131D6E6900DFA4EA /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 26B1E41C131D6E6900DFA4EA /* Icon-72.png */; };
 		26B3E29C148404EC00C3459E /* CDAudioManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E294148404EC00C3459E /* CDAudioManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		26B3E29D148404EC00C3459E /* CDOpenALSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 26B3E297148404EC00C3459E /* CDOpenALSupport.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -316,7 +315,6 @@
 		26AE5BE21442601C00570ABC /* Highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Highlight.png; sourceTree = "<group>"; };
 		26AE5BF31442926100570ABC /* UnderlineWide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UnderlineWide.png; sourceTree = "<group>"; };
 		26AE5BF5144292AF00570ABC /* UnderlineNarrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UnderlineNarrow.png; sourceTree = "<group>"; };
-		26B1E3E1131D608900DFA4EA /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = text; path = iTunesArtwork; sourceTree = "<group>"; };
 		26B1E41C131D6E6900DFA4EA /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		26B3E293148404EC00C3459E /* CDAudioManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDAudioManager.h; sourceTree = "<group>"; };
 		26B3E294148404EC00C3459E /* CDAudioManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDAudioManager.m; sourceTree = "<group>"; };
@@ -775,7 +773,6 @@
 				26A292FE1509E232004F24F2 /* Default-Portrait@2x~ipad.png */,
 				26F27B4C13F4592B00AB6EC1 /* Default-Landscape~ipad.png */,
 				26A292FC1509E189004F24F2 /* Default-Landscape@2x~ipad.png */,
-				26B1E3E1131D608900DFA4EA /* iTunesArtwork */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -922,7 +919,6 @@
 				2638162B131CDB73004E2983 /* NewSelectedP.png in Resources */,
 				2638162C131CDB73004E2983 /* UndoSelectedL.png in Resources */,
 				2638162D131CDB73004E2983 /* UndoSelectedP.png in Resources */,
-				26B1E3E3131D608900DFA4EA /* iTunesArtwork in Resources */,
 				26B1E41D131D6E6900DFA4EA /* Icon-72.png in Resources */,
 				268F0E8C131F3E22000DC644 /* Line.png in Resources */,
 				268F0EA0131F4525000DC644 /* CheckNo.png in Resources */,
