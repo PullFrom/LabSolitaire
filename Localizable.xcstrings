@@ -1030,30 +1030,6 @@
           }
         }
       }
-    },
-    "v. 1.1.1": {
-      "comment": "Version string in About panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "v. 1.1.1"
-          }
-        }
-      }
-    },
-    "©2011-2015 Soft Dorothy LLC": {
-      "comment": "Copyright notice",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "©2011-2015 Soft Dorothy LLC"
-          }
-        }
-      }
     }
   },
   "version": "1.0"
