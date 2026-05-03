@@ -52,6 +52,7 @@
 	UIView						*_currentInfoView;							// Weak reference.
 	UIView						*_rotatingView;
 	UIView						*_darkView;
+	UIImageView					*_paperBackgroundView;
 	UIView						*_infoView;
 	UIView						*_overlayingView;							// Weak reference.
 	IBOutlet UIView				*_aboutView;

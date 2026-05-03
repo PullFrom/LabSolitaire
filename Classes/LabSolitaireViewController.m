@@ -57,6 +57,7 @@
 #define kPutawayAnimationDelay			0.25	// 0.30
 #define kWaitForTouchToEndDelay			0.02
 #define	kMaxLeaderboardScores			15	// 10
+#define kPaperTabletBackgroundTag		42
 
 
 enum
@@ -1338,16 +1339,29 @@ skipAudio:
 	
 	// Initially begin with "about view" being displayed.
 	_currentInfoView = _aboutView;
-	
+
+	// Create shared paper background if needed.
+	if (!_paperBackgroundView)
+	{
+		_paperBackgroundView = [[UIImageView alloc] initWithImage: [UIImage imageNamed: @"PaperTablet"]];
+		_paperBackgroundView.frame = CGRectMake (0, 0, 708, 708);
+	}
+	[_darkView addSubview: _paperBackgroundView];
+
+	// Hide the tab's internal PaperTablet so only the shared one is visible.
+	[self _ensurePaperTabletTagged: _aboutView];
+	[_aboutView viewWithTag: kPaperTabletBackgroundTag].hidden = YES;
+
 	_aboutView.alpha = 1.0;
 	[_darkView addSubview: _aboutView];
 
-	// Position the about view off-screen below before sliding in.
+	// Position both views off-screen below before sliding in.
 	CGRect mainBounds = self.view.bounds;
 	CGRect frame = _aboutView.frame;
 	frame.origin.x = (mainBounds.size.width - frame.size.width) / 2.0;
 	frame.origin.y = mainBounds.size.height;
 	_aboutView.frame = frame;
+	_paperBackgroundView.frame = CGRectMake (frame.origin.x, frame.origin.y, 708, 708);
 
 	// Capture touch events.
 	_darkView.userInteractionEnabled = YES;
@@ -1355,6 +1369,7 @@ skipAudio:
 	// Animate-in the view sliding in while the dark view becomes darker.
 	[UIView animateWithDuration: 0.5 animations: ^{
 		self->_darkView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.75];
+		[self _positionSubviewBottomAndCentered: self->_paperBackgroundView];
 		[self _positionSubviewBottomAndCentered: self->_aboutView];
 	} completion: nil];
 }
@@ -1499,6 +1514,23 @@ skipAudio:
 	subview.frame = frame;
 }
 
+- (void) _ensurePaperTabletTagged: (UIView *) view
+{
+	if ([view viewWithTag: kPaperTabletBackgroundTag])
+		return;
+
+	for (UIView *sub in view.subviews)
+	{
+		if ([sub isKindOfClass: [UIImageView class]] &&
+			sub.bounds.size.width == 708 && sub.bounds.size.height == 708)
+		{
+			sub.tag = kPaperTabletBackgroundTag;
+			return;
+		}
+		[self _ensurePaperTabletTagged: sub];
+	}
+}
+
 // -------------------------------------------------------------------------------------------------
 
 - (void) _addInfoSubview: (UIView *) subview
@@ -1507,18 +1539,24 @@ skipAudio:
 	{
 		[[LSAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
 	}
-	
+
+	// Hide the new tab's internal PaperTablet so only the shared one is visible.
+	[self _ensurePaperTabletTagged: subview];
+	[subview viewWithTag: kPaperTabletBackgroundTag].hidden = YES;
+
 	// Switch to display the subview.
 	subview.alpha = 0.0;
 	[_darkView addSubview: subview];
 	[self _positionSubviewBottomAndCentered: subview];
-	
+
 	// Fade-out the previous view while fading in the new one.
+	UIView *oldView = _currentInfoView;
 	[UIView animateWithDuration: 0.2 animations: ^{
 		subview.alpha = 1.0;
-		self->_currentInfoView.alpha = 0.0;
+		oldView.alpha = 0.0;
 	} completion: ^(BOOL finished) {
-		[self->_currentInfoView removeFromSuperview];
+		[oldView viewWithTag: kPaperTabletBackgroundTag].hidden = NO;
+		[oldView removeFromSuperview];
 		self->_currentInfoView = subview;
 		[self->_darkView bringSubviewToFront: self->_currentInfoView];
 	}];
@@ -1570,17 +1608,22 @@ skipAudio:
 	frame = _currentInfoView.frame;
 	frame.origin = CGPointMake ((mainBounds.size.width - frame.size.width) / 2.0,
 	                            mainBounds.size.height);
+	CGRect bgFrame = _paperBackgroundView.frame;
+	bgFrame.origin.y = mainBounds.size.height;
 	[UIView animateWithDuration: 0.5 animations: ^{
 		self->_darkView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.0];
 		self->_currentInfoView.frame = frame;
+		self->_paperBackgroundView.frame = bgFrame;
 	} completion: ^(BOOL finished) {
 		self->_infoViewIsOpen = NO;
 
 		if (self->_currentInfoView)
 		{
+			[self->_currentInfoView viewWithTag: kPaperTabletBackgroundTag].hidden = NO;
 			[self->_currentInfoView removeFromSuperview];
 			self->_currentInfoView = nil;
 		}
+		[self->_paperBackgroundView removeFromSuperview];
 
 		if (self->_autoPutaway)
 		{
@@ -1761,20 +1804,27 @@ skipAudio:
 		{
 			[[LSAudioEngine sharedEngine] playEffect: @"Babip.wav"];
 		}
-		
+
+		// Hide the game over view's internal PaperTablet.
+		[self _ensurePaperTabletTagged: _gameOverView];
+		[_gameOverView viewWithTag: kPaperTabletBackgroundTag].hidden = YES;
+
 		// Switch to display the "game over view".
 		_gameOverView.alpha = 0.0;
 		[_darkView addSubview: _gameOverView];
-		
+		[self _positionSubviewBottomAndCentered: _gameOverView];
+
 		// Update statistics.
 		[self updateLocalStatisticsInterface];
-		
+
 		// Crossfade to the game over view.
+		UIView *oldView = _currentInfoView;
 		[UIView animateWithDuration: 0.2 animations: ^{
 			self->_gameOverView.alpha = 1.0;
-			self->_currentInfoView.alpha = 0.0;
+			oldView.alpha = 0.0;
 		} completion: ^(BOOL finished) {
-			[self->_currentInfoView removeFromSuperview];
+			[oldView viewWithTag: kPaperTabletBackgroundTag].hidden = NO;
+			[oldView removeFromSuperview];
 			self->_currentInfoView = self->_gameOverView;
 			[self->_darkView bringSubviewToFront: self->_currentInfoView];
 		}];
@@ -1782,7 +1832,19 @@ skipAudio:
 	else
 	{
 		_infoViewIsOpen = YES;
-		
+
+		// Create shared paper background if needed.
+		if (!_paperBackgroundView)
+		{
+			_paperBackgroundView = [[UIImageView alloc] initWithImage: [UIImage imageNamed: @"PaperTablet"]];
+			_paperBackgroundView.frame = CGRectMake (0, 0, 708, 708);
+		}
+		[_darkView addSubview: _paperBackgroundView];
+
+		// Hide the game over view's internal PaperTablet.
+		[self _ensurePaperTabletTagged: _gameOverView];
+		[_gameOverView viewWithTag: kPaperTabletBackgroundTag].hidden = YES;
+
 		// Add "Game Over" view.
 		[_darkView addSubview: _gameOverView];
 		_currentInfoView = _gameOverView;
@@ -1790,12 +1852,13 @@ skipAudio:
 		// Update statistics.
 		[self updateLocalStatisticsInterface];
 
-		// Position the game over view off-screen below before sliding in.
+		// Position both views off-screen below before sliding in.
 		CGRect mainBounds = self.view.bounds;
 		CGRect frame = _gameOverView.frame;
 		frame.origin.x = (mainBounds.size.width - frame.size.width) / 2.0;
 		frame.origin.y = mainBounds.size.height;
 		_gameOverView.frame = frame;
+		_paperBackgroundView.frame = CGRectMake (frame.origin.x, frame.origin.y, 708, 708);
 
 		// Capture touch events.
 		_darkView.userInteractionEnabled = YES;
@@ -1803,6 +1866,7 @@ skipAudio:
 		// Animate-in the view sliding in while the dark view becomes darker.
 		[UIView animateWithDuration: 0.5 animations: ^{
 			self->_darkView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.75];
+			[self _positionSubviewBottomAndCentered: self->_paperBackgroundView];
 			[self _positionSubviewBottomAndCentered: self->_gameOverView];
 		} completion: ^(BOOL finished) {
 			if (self->_playSounds)
@@ -1834,6 +1898,7 @@ skipAudio:
 		[self adjustLayoutForOrientation:newOrientation];
 
 		if (self->_infoViewIsOpen && self->_currentInfoView) {
+			[self _positionSubviewBottomAndCentered:self->_paperBackgroundView];
 			[self _positionSubviewBottomAndCentered:self->_currentInfoView];
 		}
 	} completion:nil];

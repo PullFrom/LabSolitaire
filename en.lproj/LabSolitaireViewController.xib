@@ -45,7 +45,7 @@
             <rect key="frame" x="0.0" y="0.0" width="708" height="708"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PaperTablet.png" translatesAutoresizingMaskIntoConstraints="NO" id="ism-rl-rfx">
+                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PaperTablet.png" tag="42" translatesAutoresizingMaskIntoConstraints="NO" id="ism-rl-rfx">
                     <rect key="frame" x="0.0" y="0.0" width="708" height="708"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -177,7 +177,7 @@ Shorcuts:
             <rect key="frame" x="0.0" y="0.0" width="708" height="708"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PaperTablet.png" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-qn-23e">
+                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PaperTablet.png" tag="42" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-qn-23e">
                     <rect key="frame" x="0.0" y="0.0" width="708" height="708"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -518,7 +518,7 @@ Player</string>
             <rect key="frame" x="0.0" y="0.0" width="708" height="708"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PaperTablet.png" translatesAutoresizingMaskIntoConstraints="NO" id="GCM-SF-xCo">
+                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PaperTablet.png" tag="42" translatesAutoresizingMaskIntoConstraints="NO" id="GCM-SF-xCo">
                     <rect key="frame" x="0.0" y="0.0" width="708" height="708"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -633,7 +633,7 @@ Player</string>
             <rect key="frame" x="0.0" y="0.0" width="708" height="708"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PaperTablet.png" translatesAutoresizingMaskIntoConstraints="NO" id="noD-3q-lpe">
+                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PaperTablet.png" tag="42" translatesAutoresizingMaskIntoConstraints="NO" id="noD-3q-lpe">
                     <rect key="frame" x="0.0" y="0.0" width="708" height="708"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
