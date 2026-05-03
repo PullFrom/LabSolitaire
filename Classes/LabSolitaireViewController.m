@@ -1357,24 +1357,27 @@ skipAudio:
 
 - (void) openLabSolitaireInAppStore: (id) sender
 {
-	[[UIApplication sharedApplication] openURL: 
-			[NSURL URLWithString: @"itms-apps://itunes.apple.com/app/lab-solitaire/id457535509?ls=1&mt=8"]];
+	[[UIApplication sharedApplication] openURL:
+			[NSURL URLWithString: @"itms-apps://itunes.apple.com/app/lab-solitaire/id457535509?ls=1&mt=8"]
+			options: @{} completionHandler: nil];
 }
 
 // -------------------------------------------------------------------------------------- openParlourSolitaireInAppStore
 
 - (void) openParlourSolitaireInAppStore: (id) sender
 {
-	[[UIApplication sharedApplication] openURL: 
-			[NSURL URLWithString: @"itms-apps://itunes.apple.com/app/parlour-solitaire/id465002121?ls=1&mt=8"]];
+	[[UIApplication sharedApplication] openURL:
+			[NSURL URLWithString: @"itms-apps://itunes.apple.com/app/parlour-solitaire/id465002121?ls=1&mt=8"]
+			options: @{} completionHandler: nil];
 }
 
 // ------------------------------------------------------------------------------------------------ openGliderInAppStore
 
 - (void) openGliderInAppStore: (id) sender
 {
-	[[UIApplication sharedApplication] openURL: 
-			[NSURL URLWithString: @"itms-apps://itunes.apple.com/app/glider-classic/id463484447?mt=8"]];
+	[[UIApplication sharedApplication] openURL:
+			[NSURL URLWithString: @"itms-apps://itunes.apple.com/app/glider-classic/id463484447?mt=8"]
+			options: @{} completionHandler: nil];
 }
 
 // --------------------------------------------------------------------------------------------- updateSettingsInterface
