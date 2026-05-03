@@ -438,7 +438,6 @@
 		4C1616F92FA67749002DEE82 /* LabSolitaireSceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabSolitaireSceneDelegate.m; sourceTree = "<group>"; };
 		4C37DCBD2FA79F2D00825C1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C37DCBF2FA7AB1900825C1D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
-		4C85D9DC2FA6A947006E136A /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/LabSolitaireViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -799,16 +798,13 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "LabSolitaire" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
 				en,
 				fr,
 				ja,
+				de,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -1039,7 +1035,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				2641ED7F140818FD00709D17 /* en */,
-				4C85D9DC2FA6A947006E136A /* ja */,
 			);
 			name = LabSolitaireViewController.xib;
 			sourceTree = "<group>";

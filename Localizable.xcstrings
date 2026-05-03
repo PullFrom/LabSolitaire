@@ -1,1036 +1,1330 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "\"Smart\"": {
-      "comment": "Putaway mode button - Smart",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "\"Smart\""
+  "sourceLanguage" : "en",
+  "strings" : {
+    "\"Smart\"" : {
+      "comment" : "Putaway mode button - Smart",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Smart\""
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Intelligement"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Smart\""
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "スマート"
-          }
-        }
-      }
-    },
-    "% Won": {
-      "comment": "Leaderboard column header for win percentage",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "% Won"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intelligement"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "% de Gagnés"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "勝ち率"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スマート"
           }
         }
       }
     },
-    "About…": {
-      "comment": "Tab header for About panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "About…"
+    "% Won" : {
+      "comment" : "Leaderboard column header for win percentage",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "% Gewonnen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A propos…"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "% Won"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ゲームについて"
-          }
-        }
-      }
-    },
-    "All": {
-      "comment": "Button label for All (putaway mode and leaderboard scope)",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "All"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "% de Gagnés"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tout"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "全部"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "勝ち率"
           }
         }
       }
     },
-    "Also available from Soft Dorothy:": {
-      "comment": "Label above app promotions in About panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Also available from Soft Dorothy:"
+    "About…" : {
+      "comment" : "Tab header for About panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Info…"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Également disponibles auprès de Soft Dorothy:"
-          }
-        }
-      }
-    },
-    "Any": {
-      "comment": "Tableau label",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Any"
-          }
-        }
-      }
-    },
-    "Artwork, design, programming: John Calhoun": {
-      "comment": "Credits line in About panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Artwork, design, programming: John Calhoun"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About…"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Illustrations, conception et programmation: John Calhoun"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A propos…"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "アート、デザイン、プログラム：John Calhoun"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ゲームについて"
           }
         }
       }
     },
-    "Automatically put cards away:": {
-      "comment": "Settings label for auto-putaway toggle",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Automatically put cards away:"
+    "All" : {
+      "comment" : "Button label for All (putaway mode and leaderboard scope)",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Défausser automatiquement:"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "自動的にカードを除く"
-          }
-        }
-      }
-    },
-    "Cancel": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancel"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tout"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuler"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "キャンセル"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全部"
           }
         }
       }
     },
-    "Congratulations, you won!": {
-      "comment": "Win message in game-over panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Congratulations, you won!"
+    "Also available from Soft Dorothy:" : {
+      "comment" : "Label above app promotions in About panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ebenfalls von Soft Dorothy:"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Félicitations, c'est gagné!"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Also available from Soft Dorothy:"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "おめでとう、あなたの勝ちです！"
-          }
-        }
-      }
-    },
-    "Display:": {
-      "comment": "Settings label for display scope",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Display:"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afficher:"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ディスプレー"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Également disponibles auprès de Soft Dorothy:"
           }
         }
       }
     },
-    "Free": {
-      "comment": "Cell label shown when a free cell is empty",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Free"
+    "Any" : {
+      "comment" : "Tableau label",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jede"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Any"
           }
         }
       }
     },
-    "French localization: Laurent Saillard, Thomas Goossens": {
-      "comment": "French translator credits",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "French localization: Laurent Saillard, Thomas Goossens"
+    "Artwork, design, programming: John Calhoun" : {
+      "comment" : "Credits line in About panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Grafik, Design, Programmierung: John Calhoun"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Localisation Française: Laurent Saillard, Thomas Goossens"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artwork, design, programming: John Calhoun"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "フランス語翻訳: Laurent Saillard, Thomas Goossens"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Illustrations, conception et programmation: John Calhoun"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アート、デザイン、プログラム：John Calhoun"
           }
         }
       }
     },
-    "Friends": {
-      "comment": "Leaderboard scope button",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Friends"
+    "Automatically put cards away:" : {
+      "comment" : "Settings label for auto-putaway toggle",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karten automatisch ablegen:"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Amis"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatically put cards away:"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "友人"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Défausser automatiquement:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "自動的にカードを除く"
           }
         }
       }
     },
-    "Games Played": {
-      "comment": "Statistics label",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Games Played"
+    "Cancel" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jeux Joués"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "総ゲーム回数"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャンセル"
           }
         }
       }
     },
-    "Games Won": {
-      "comment": "Statistics label",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Games Won"
+    "cells" : {
+      "comment" : "Diagram label in Rules panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zellen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jeux Gagnés"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cells"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "勝った回数"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "case"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cell"
           }
         }
       }
     },
-    "Glider Classic": {
-      "comment": "App promotion button",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Glider Classic"
+    "Congratulations, you won!" : {
+      "comment" : "Win message in game-over panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glückwunsch, du hast gewonnen!"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Glider Classic"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Congratulations, you won!"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Glider Classic"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Félicitations, c'est gagné!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "おめでとう、あなたの勝ちです！"
           }
         }
       }
     },
-    "If you start a new game this game will count as a loss.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "If you start a new game this game will count as a loss."
+    "Display:" : {
+      "comment" : "Settings label for display scope",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anzeige:"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si vous démarrer une nouvelle partie le jeu en cours sera abandonné."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Display:"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "新しいゲームを始める場合、このゲームは負けとカウントされます。"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ディスプレー"
           }
         }
       }
     },
-    "Japanese localization: Mayumi Hepburn": {
-      "comment": "Japanese translator credits",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Japanese localization: Mayumi Hepburn"
+    "foundation" : {
+      "comment" : "Diagram label in Rules panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ablage"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Localisation Japonais: Mayumi Hepburn"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "foundation"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "日本語翻訳: Mayumi Hepburn"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "base"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foundation"
           }
         }
       }
     },
-    "Lab Solitaire": {
-      "comment": "App title in About panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lab Solitaire"
+    "Free" : {
+      "comment" : "Cell label shown when a free cell is empty",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frei"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lab Solitaire"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Free"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lab Solitaire"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Free"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Free"
           }
         }
       }
     },
-    "Lab Solitaire Rules": {
-      "comment": "Rules panel title",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lab Solitaire Rules"
+    "French localization: Laurent Saillard, Thomas Goossens" : {
+      "comment" : "French translator credits",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Französische Übersetzung: Laurent Saillard, Thomas Goossens"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rêgles du jeux de Lab Solitaire"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "French localization: Laurent Saillard, Thomas Goossens"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ラボソリタリ　ルール"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localisation Française: Laurent Saillard, Thomas Goossens"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フランス語翻訳: Laurent Saillard, Thomas Goossens"
           }
         }
       }
     },
-    "Leaderboard Scores": {
-      "comment": "Leaderboard section title in Settings",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Leaderboard Scores"
+    "Friends" : {
+      "comment" : "Leaderboard scope button",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Freunde"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Classement"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Friends"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Leaderboard"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amis"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "友人"
           }
         }
       }
     },
-    "Name": {
-      "comment": "Leaderboard column header",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Name"
+    "Games Played" : {
+      "comment" : "Statistics label",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gespielt"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nom"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Games Played"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "の名前"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jeux Joués"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "総ゲーム回数"
           }
         }
       }
     },
-    "New Game": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "New Game"
+    "Games Won" : {
+      "comment" : "Statistics label",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gewonnen"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nouvelle"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Games Won"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "新しいゲーム"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jeux Gagnés"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "勝った回数"
           }
         }
       }
     },
-    "New Game Title": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "New Game"
+    "Glider Classic" : {
+      "comment" : "App promotion button",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glider Classic"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nouvelle partie"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glider Classic"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "新しいゲーム"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glider Classic"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Glider Classic"
           }
         }
       }
     },
-    "Parlour Solitaire (Klondike)": {
-      "comment": "App promotion button",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parlour Solitaire (Klondike)"
+    "If you start a new game this game will count as a loss." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn du ein neues Spiel startest, zählt dieses als Niederlage."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parlour Solitaire (Klondike)"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you start a new game this game will count as a loss."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parlour Solitaire (Klondike)"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si vous démarrer une nouvelle partie le jeu en cours sera abandonné."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいゲームを始める場合、このゲームは負けとカウントされます。"
           }
         }
       }
     },
-    "Percentage Won": {
-      "comment": "Statistics label in game-over panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Percentage Won"
+    "Japanese localization: Mayumi Hepburn" : {
+      "comment" : "Japanese translator credits",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Japanische Übersetzung: Mayumi Hepburn"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pourcentage de Gagnés"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Japanese localization: Mayumi Hepburn"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "勝ち率"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localisation Japonais: Mayumi Hepburn"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "日本語翻訳: Mayumi Hepburn"
           }
         }
       }
     },
-    "Play sounds:": {
-      "comment": "Settings label for sound toggle",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Play sounds:"
+    "Lab Solitaire" : {
+      "comment" : "App title in About panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lab Solitaire"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jouer les sons:"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lab Solitaire"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "サウンド"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lab Solitaire"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lab Solitaire"
           }
         }
       }
     },
-    "Put away:": {
-      "comment": "Settings label for putaway mode",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Put away:"
+    "Lab Solitaire Rules" : {
+      "comment" : "Rules panel title",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lab Solitaire Regeln"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Défausser:"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lab Solitaire Rules"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "カードを除く:"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rêgles du jeux de Lab Solitaire"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ラボソリタリ　ルール"
           }
         }
       }
     },
-    "Reset": {
-      "extractionState": "stale",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reset"
+    "Leaderboard Scores" : {
+      "comment" : "Leaderboard section title in Settings",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestenliste"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réinitialiser"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leaderboard Scores"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "リセットする"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Classement"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leaderboard"
           }
         }
       }
     },
-    "Reset Statistics": {
-      "extractionState": "stale",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reset Statistics"
+    "Name" : {
+      "comment" : "Leaderboard column header",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réinitialisation des statistiques"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "結果をリセットする"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "の名前"
           }
         }
       }
     },
-    "Reseting the statistics will clear your game history.": {
-      "extractionState": "stale",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reseting the statistics will clear your game history."
+    "New Game" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neues Spiel"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réinitialiser les statistiques effacera l'historique."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Game"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "リセットすると、これまでの結果がすべて消されます。"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouvelle"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいゲーム"
           }
         }
       }
     },
-    "Rules…": {
-      "comment": "Tab header for Rules panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rules…"
+    "New Game Title" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neues Spiel"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rêgles…"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New Game"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ルール"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouvelle partie"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいゲーム"
           }
         }
       }
     },
-    "Settings…": {
-      "comment": "Tab header for Settings panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Settings…"
+    "Parlour Solitaire (Klondike)" : {
+      "comment" : "App promotion button",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parlour Solitaire (Klondike)"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Paramètres…"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parlour Solitaire (Klondike)"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "設定"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parlour Solitaire (Klondike)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Parlour Solitaire (Klondike)"
           }
         }
       }
     },
-    "Statistics": {
-      "comment": "Statistics section title in game-over panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Statistics"
+    "Percentage Won" : {
+      "comment" : "Statistics label in game-over panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gewinnquote"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Statistiques"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Percentage Won"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "結果"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourcentage de Gagnés"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "勝ち率"
           }
         }
       }
     },
-    "Touch here": {
-      "comment": "Review prompt button in About panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Touch here"
+    "Play sounds:" : {
+      "comment" : "Settings label for sound toggle",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Töne abspielen:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play sounds:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jouer les sons:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "サウンド"
           }
         }
       }
     },
-    "Undo All": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Undo All"
+    "Put away:" : {
+      "comment" : "Settings label for putaway mode",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ablegen:"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuler tout"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Put away:"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "すべてを元に戻す"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Défausser:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カードを除く:"
           }
         }
       }
     },
-    "Undo All Actions": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Undo All"
+    "putaway.help" : {
+      "comment" : "Help text explaining Smart vs All putaway modes",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Smart\" legt nur Karten ab, die nicht mehr gebraucht werden.\n\"Alle\" legt alle möglichen Karten ab."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuler tout"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Smart\" only puts away cards no longer needed.\n\"All\" puts away all possible cards. "
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "すべてを元に戻す"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"Intelligement\" uniquement défausser les cartes qui ne sont plus utiles.\n \"Tout\" défausser toutes les cartes possibles."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\"スマート\"　必要のないカードだけを除く\n\"全部\"  全部のカードを除く"
           }
         }
       }
     },
-    "Without reviews, others are less likely to discover this game.": {
-      "comment": "Review encouragement text in About panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Without reviews, others are less likely to discover this game."
+    "Reset" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurücksetzen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialiser"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リセットする"
           }
         }
       }
     },
-    "You": {
-      "comment": "Leaderboard fallback when no player name is available",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "You"
+    "Reset Statistics" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistik zurücksetzen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset Statistics"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialisation des statistiques"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "結果をリセットする"
           }
         }
       }
     },
-    "You can Undo all actions in this game.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "You can Undo all actions in this game and restart it with the same original deal."
+    "Reseting the statistics will clear your game history." : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Zurücksetzen der Statistik löscht deine gesamte Spielhistorie."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vous pouvez annuler toutes les actions dans ce jeu et de le redémarrer avec la même offre originale."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reseting the statistics will clear your game history."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "このゲーム内のすべてのアクションを元に戻すと同じオリジナルの契約でそれを再起動することができます。"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialiser les statistiques effacera l'historique."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "リセットすると、これまでの結果がすべて消されます。"
           }
         }
       }
     },
-    "cells": {
-      "comment": "Diagram label in Rules panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "cells"
+    "Rules…" : {
+      "comment" : "Tab header for Rules panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regeln…"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "case"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rules…"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cell"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rêgles…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ルール"
           }
         }
       }
     },
-    "foundation": {
-      "comment": "Diagram label in Rules panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "foundation"
+    "rules.body" : {
+      "comment" : "Full rules body text in Rules panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lab Solitaire ist FreeCell-Solitär.\n\nZiel bei FreeCell ist es, alle Karten von den Tableau-Spalten unten auf die vier Ablagen oben rechts zu bewegen. Die Karten müssen nach Farbe sortiert in der Reihenfolge Ass bis König abgelegt werden. Nur die jeweils oberste Karte kann bewegt werden.\n\nEine Karte kann von einer Tableau-Spalte auf eine andere gelegt werden. Wie beim normalen Solitär darf eine Karte nur auf eine andere gelegt werden, die einen Rang höher und von entgegengesetzter Farbe (rot/schwarz) ist.\n\nFreeCell hat vier freie Zellen oben links, in die jede beliebige Karte vorübergehend gelegt werden kann.\n\nWenn eine Spalte im Tableau leer ist, kann jede beliebige Karte dort abgelegt werden – es muss kein König sein.\n\nTipps:\n – Doppeltippe auf eine Karte, um sie automatisch an die passende Stelle zu legen.\n – Mehrere Karten können gleichzeitig gezogen werden, wenn genug freie Zellen vorhanden sind.\n – Halte „Undo“ gedrückt, um dasselbe Spiel neu zu starten."
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "base"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lab Solitaire is FreeCell solitaire \n\nIn FreeCell the object is to move all the cards from \nthe tableau columns below to the four foundations \nin the upper right of the layout. They must be placed on the foundations grouped\nby suits and in order from Ace to King. Only the topmost card can be moved.\n\nA card of a tableau column can be moved to another column in the tableau. As in\nstandard solitaire, you can only move a card onto another card that is one \ngreater in rank and opposite in color.\n\nFreeCell has four free “cells” in the top left of the layout where any card may be \ntemporarily moved.\n\nWhen a column is empty in the tableau, any card may be placed in that column –\nit does not have to be a King.\n\nShortcuts:\n – If you double-tap on a card, it will be moved to an appropriate location. \n – Multiple cards may be dragged if you have enough empty cells to have dragged them one at a time.\n – Touch and hold Undo to restart the same game again."
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Foundation"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lab Solitaire est un jeux solitaire type FreeCell.\n\nDans FreeCell le but est de déplacer toutes les cartes depuis le tableau-colonne inférieur vers les 4 bases en haut à droite de l'écran. Les cartes doivent être montées dans les bases groupées par couleurs et dans l'ordre As vers Roi. Seule la carte la plus haute peut être déplacée.\n\nUne carte du tableau-colonne peut être déplacée d'une colonne à une autre. Comme dans le solitaire standard, vous ne pouvez superposer une carte que sur une autre carte de valeur juste directement supérieure et de la couleur opposée (noir ou rouge).\n\nFreeCell dispose de quatre cases libres en haut à gauche de l'écran où toute carte peut être placée temporairement.\n\nQuand une colonne est vide dans le tableau, n'importe quelle carte peut y être placée – elle ne doit pas être nécessairement un Roi.\n\nRaccourcis :\n – Si vous double-tapez sur une carte, elle sera déplacée automatiquement vers la position appropriée.\n – Plusieurs cartes peuvent être déplacées simultanément si vous avez assez de place.\n – Touch et tenez Undo pour redémarrer le même jeu de nouveau."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このゲームは、すべてのカードを右上の\nFoundationにどれだけ早く移動できるか\nを競うゲームです。\n \nFoundationにはダイヤ、スペード、ハート、\nクローバーそれぞれエースからキングまで順番にカードを並べなけれ\nばなりません。\n\n一番上のカードだけを動かすことができます。\nカードの数字がひとつ大きくて、違った色（赤－黒）であればTableauにあるカードを他の列に動かして交換する\nことができます。\n \n左上のCellの部分には一時的に4枚までのカードをおくことができます。\n \nTableauの列のカードを使い果たした時は、\n他の列からカードを移動する事ができます。\n \nショートカット\n-カードを2度クリックして、自動的にカードを動かすことができます。\n-Cellがあいていれば、何枚かのカードを一度に動かすことができます。"
           }
         }
       }
     },
-    "putaway.help": {
-      "comment": "Help text explaining Smart vs All putaway modes",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "\"Smart\" only puts away cards no longer needed.\n\"All\" puts away all possible cards. "
+    "Settings…" : {
+      "comment" : "Tab header for Settings panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen…"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "\"Intelligement\" uniquement défausser les cartes qui ne sont plus utiles.\n \"Tout\" défausser toutes les cartes possibles."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings…"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "\"スマート\"　必要のないカードだけを除く\n\"全部\"  全部のカードを除く"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paramètres…"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定"
           }
         }
       }
     },
-    "rules.body": {
-      "comment": "Full rules body text in Rules panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lab Solitaire is FreeCell solitaire \n\nIn FreeCell the object is to move all the cards from \nthe tableau columns below to the four foundations \nin the upper right of the layout. They must be placed on the foundations grouped\nby suits and in order from Ace to King. Only the topmost card can be moved.\n\nA card of a tableau column can be moved to another column in the tableau. As in\nstandard solitaire, you can only move a card onto another card that is one \ngreater in rank and opposite in color.\n\nFreeCell has four free “cells” in the top left of the layout where any card may be \ntemporarily moved.\n\nWhen a column is empty in the tableau, any card may be placed in that column –\nit does not have to be a King.\n\nShorcuts:\n – If you double-tap on a card, it will be moved to an appropriate location. \n – Multiple cards may be dragged if you have enough empty cells to have dragged \n   them one at a time.\n - Touch and hold Undo to restart the same game again."
+    "Statistics" : {
+      "comment" : "Statistics section title in game-over panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistik"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lab Solitaire est un jeux solitaire type FreeCell.\n\nDans FreeCell le but est de déplacer toutes les cartes \ndepuis le tableau-colonne inférieur vers les 4 bases \nen haut à droite de l'écran. Les cartes doivent être montées dans les bases \ngroupées par couleurs et dans l'ordre As vers Roi. Seule la carte la plus haute \npeut être déplacée.\n\nUne carte du tableau-colonne peut être déplacée d'une colonne à une autre. \nComme dans le solitaire standard, vous ne pouvez superposer une carte que \nsur une autre carte de valeur juste directement supérieure et de la couleur \nopposée (noir ou rouge).\n\nFreeCell dispose de quatre cases libres en haut à gauche de l'écran où toute \ncarte peut être placée temporairement.\n\nQuand une colonne est vide dans le tableau, n'importe quelle carte peut y être \nplacée - elle ne doit pas être nécessairement un Roi.\n\nRaccourcis :\n - Si vous double-tapez sur une carte, elle sera \n   déplacée automatiquement vers la position appropriée.\n - Plusieurs cartes peuvent être déplacées simultanément \n   si vous avez assez de place.\n - Touch et tenez Undo pour redémarrer le même jeu de nouveau."
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistics"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "このゲームは、すべてのカードを右上の\nFoundationにどれだけ早く移動できるか\nを競うゲームです。\n \nFoundationにはダイヤ、スペード、ハート、\nクローバーそれぞれエースからキングまで順番にカードを並べなけれ\nばなりません。\n\n一番上のカードだけを動かすことができます。\nカードの数字がひとつ大きくて、違った色（赤－黒）\nであればTableauにあるカードを他の列に動かして交換する\nことができます。\n \n左上のCellの部分には一時的に4枚までのカードをおくことができます。\n \nTableauの列のカードを使い果たした時は、\n他の列からカードを移動する事ができます。\n \nショートカット\n-カードを2度クリックして、自動的にカードを動かすことができます。\n-Cellがあいていれば、何枚かのカードを一度に動かすことができます。"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Statistiques"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "結果"
           }
         }
       }
     },
-    "tableau": {
-      "comment": "Diagram label in Rules panel",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "tableau"
+    "tableau" : {
+      "comment" : "Diagram label in Rules panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tableau"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "tableau"
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tableau"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tableau"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "tableau"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tableau"
           }
         }
       }
     },
-    "to leave a review of Lab Solitaire.": {
-      "comment": "Review prompt continuation text",
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "to leave a review of Lab Solitaire."
+    "to leave a review of Lab Solitaire." : {
+      "comment" : "Review prompt continuation text",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "um Lab Solitaire zu bewerten."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "to leave a review of Lab Solitaire."
+          }
+        }
+      }
+    },
+    "Touch here" : {
+      "comment" : "Review prompt button in About panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hier tippen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Touch here"
+          }
+        }
+      }
+    },
+    "Undo All" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alles zurück"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Undo All"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler tout"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべてを元に戻す"
+          }
+        }
+      }
+    },
+    "Undo All Actions" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alles zurück"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Undo All"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler tout"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべてを元に戻す"
+          }
+        }
+      }
+    },
+    "Without reviews, others are less likely to discover this game." : {
+      "comment" : "Review encouragement text in About panel",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ohne Bewertungen wird dieses Spiel seltener entdeckt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Without reviews, others are less likely to discover this game."
+          }
+        }
+      }
+    },
+    "You" : {
+      "comment" : "Leaderboard fallback when no player name is available",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You"
+          }
+        }
+      }
+    },
+    "You can Undo all actions in this game." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du kannst alle Züge rückgängig machen und das Spiel mit der gleichen Kartenverteilung neu starten."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can Undo all actions in this game and restart it with the same original deal."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous pouvez annuler toutes les actions dans ce jeu et de le redémarrer avec la même offre originale."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このゲーム内のすべてのアクションを元に戻すと同じオリジナルの契約でそれを再起動することができます。"
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }

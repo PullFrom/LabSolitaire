@@ -56,7 +56,8 @@
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Rules…"/>
+</label>
                 <imageView userInteractionEnabled="NO" contentMode="TopLeft" fixedFrame="YES" image="Underline.png" translatesAutoresizingMaskIntoConstraints="NO" id="43">
                     <rect key="frame" x="250" y="42" width="159" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,14 +90,16 @@ Shorcuts:
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="rules.body"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Lab Solitaire Rules" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="45">
                     <rect key="frame" x="103" y="88" width="229" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Lab Solitaire Rules"/>
+</label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48">
                     <rect key="frame" x="631" y="11" width="72" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -126,7 +129,8 @@ Shorcuts:
                     <connections>
                         <action selector="aboutInfo:" destination="-1" eventType="touchUpInside" id="52"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="About…"/>
+</button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49">
                     <rect key="frame" x="478" y="9" width="117" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -141,7 +145,8 @@ Shorcuts:
                     <connections>
                         <action selector="settingsInfo:" destination="-1" eventType="touchUpInside" id="56"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="Settings…"/>
+</button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="Layout.png" translatesAutoresizingMaskIntoConstraints="NO" id="59">
                     <rect key="frame" x="494" y="94" width="163" height="104"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -152,21 +157,24 @@ Shorcuts:
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="cells"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="foundation" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="61">
                     <rect key="frame" x="586" y="76" width="59" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="foundation"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="tableau" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="62">
                     <rect key="frame" x="554" y="194" width="42" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="tableau"/>
+</label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
             <nil key="simulatedStatusBarMetrics"/>
@@ -192,7 +200,8 @@ Shorcuts:
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Settings…"/>
+</label>
                 <imageView userInteractionEnabled="NO" contentMode="TopLeft" fixedFrame="YES" image="Underline.png" translatesAutoresizingMaskIntoConstraints="NO" id="30">
                     <rect key="frame" x="455" y="42" width="159" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -203,21 +212,24 @@ Shorcuts:
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Automatically put cards away:"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Put away:" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="176">
                     <rect key="frame" x="140" y="111" width="89" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Put away:"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Display:" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="225">
                     <rect key="frame" x="367" y="247" width="89" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Display:"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="169">
                     <rect key="frame" x="397" y="104" width="281" height="36"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -226,28 +238,32 @@ Shorcuts:
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
                     <color key="textColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="putaway.help"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="197">
                     <rect key="frame" x="104" y="294" width="120" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.25" green="0.25" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Name"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Games Played" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="254">
                     <rect key="frame" x="409" y="294" width="120" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.25" green="0.25" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Games Played"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Games Won" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="255">
                     <rect key="frame" x="293" y="294" width="120" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.25" green="0.25" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Games Won"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="12" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="202">
                     <rect key="frame" x="104" y="329" width="220" height="240"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -330,14 +346,16 @@ Player</string>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.25" green="0.25" blue="0.25" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="% Won"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Leaderboard Scores" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="215">
                     <rect key="frame" x="103" y="240" width="220" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Leaderboard Scores"/>
+</label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25">
                     <rect key="frame" x="631" y="11" width="72" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -367,7 +385,8 @@ Player</string>
                     <connections>
                         <action selector="aboutInfo:" destination="-1" eventType="touchUpInside" id="38"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="About…"/>
+</button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23">
                     <rect key="frame" x="277" y="12" width="106" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -382,7 +401,8 @@ Player</string>
                     <connections>
                         <action selector="rulesInfo:" destination="-1" eventType="touchUpInside" id="34"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="Rules…"/>
+</button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="179">
                     <rect key="frame" x="248" y="106" width="60" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -397,7 +417,8 @@ Player</string>
                     <connections>
                         <action selector="selectAutoPutawayMode:" destination="-1" eventType="touchUpInside" id="187"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="&quot;Smart&quot;"/>
+</button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="181">
                     <rect key="frame" x="316" y="106" width="60" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -412,7 +433,8 @@ Player</string>
                     <connections>
                         <action selector="selectAutoPutawayMode:" destination="-1" eventType="touchUpInside" id="188"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="All"/>
+</button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="Line.png" translatesAutoresizingMaskIntoConstraints="NO" id="63">
                     <rect key="frame" x="99" y="212" width="568" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -438,7 +460,8 @@ Player</string>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Play sounds:"/>
+</label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82">
                     <rect key="frame" x="329" y="150" width="40" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -472,7 +495,8 @@ Player</string>
                     <connections>
                         <action selector="selectLeaderboardScope:" destination="-1" eventType="touchUpInside" id="226"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="Friends"/>
+</button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="218">
                     <rect key="frame" x="541" y="242" width="60" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -487,7 +511,8 @@ Player</string>
                     <connections>
                         <action selector="selectLeaderboardScope:" destination="-1" eventType="touchUpInside" id="227"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="All"/>
+</button>
                 <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="SelectedIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="219">
                     <rect key="frame" x="464" y="240" width="82" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -534,7 +559,8 @@ Player</string>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Games Played"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="92">
                     <rect key="frame" x="537" y="198" width="88" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -562,14 +588,16 @@ Player</string>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Games Won"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Percentage Won" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="97">
                     <rect key="frame" x="134" y="231" width="122" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Percentage Won"/>
+</label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="106">
                     <rect key="frame" x="631" y="11" width="72" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -607,14 +635,16 @@ Player</string>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Statistics"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Congratulations, you won!" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="113">
                     <rect key="frame" x="214" y="53" width="281" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Congratulations, you won!"/>
+</label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="Schematic.png" translatesAutoresizingMaskIntoConstraints="NO" id="161">
                     <rect key="frame" x="102" y="381" width="580" height="327"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -644,7 +674,8 @@ Player</string>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="About…"/>
+</label>
                 <imageView userInteractionEnabled="NO" contentMode="TopLeft" fixedFrame="YES" image="Underline.png" translatesAutoresizingMaskIntoConstraints="NO" id="9">
                     <rect key="frame" x="64" y="42" width="159" height="14"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -655,7 +686,8 @@ Player</string>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Artwork, design, programming: John Calhoun"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="v. 1.1.1" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="124">
                     <rect key="frame" x="545" y="186" width="84" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -669,7 +701,8 @@ Player</string>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="28"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Lab Solitaire"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="©2011-2015 Soft Dorothy LLC" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6">
                     <rect key="frame" x="252" y="186" width="330" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -706,7 +739,8 @@ Player</string>
                     <connections>
                         <action selector="settingsInfo:" destination="-1" eventType="touchUpInside" id="18"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="Settings…"/>
+</button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19">
                     <rect key="frame" x="277" y="12" width="106" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -721,7 +755,8 @@ Player</string>
                     <connections>
                         <action selector="rulesInfo:" destination="-1" eventType="touchUpInside" id="21"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="Rules…"/>
+</button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="Line.png" translatesAutoresizingMaskIntoConstraints="NO" id="66">
                     <rect key="frame" x="103" y="231" width="568" height="5"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -744,14 +779,16 @@ Player</string>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="French localization: Laurent Saillard, Thomas Goossens"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Japanese localization: Mayumi Hepburn" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="191">
                     <rect key="frame" x="252" y="164" width="413" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Japanese localization: Mayumi Hepburn"/>
+</label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="192">
                     <rect key="frame" x="103" y="449" width="68" height="68"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -781,7 +818,8 @@ Player</string>
                     <connections>
                         <action selector="openParlourSolitaireInAppStore:" destination="-1" eventType="touchUpInside" id="196"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="Parlour Solitaire (Klondike)"/>
+</button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="276">
                     <rect key="frame" x="106" y="263" width="76" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -796,7 +834,8 @@ Player</string>
                     <connections>
                         <action selector="openLabSolitaireInAppStore:" destination="-1" eventType="touchUpInside" id="280"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="Touch here"/>
+</button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="270">
                     <rect key="frame" x="103" y="371" width="69" height="69"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -826,28 +865,32 @@ Player</string>
                     <connections>
                         <action selector="openGliderInAppStore:" destination="-1" eventType="touchUpInside" id="275"/>
                     </connections>
-                </button>
+                                    <accessibility key="accessibilityConfiguration" identifier="Glider Classic"/>
+</button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Also available from Soft Dorothy:" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="194">
                     <rect key="frame" x="106" y="333" width="277" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Also available from Soft Dorothy:"/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Without reviews, others are less likely to discover this game." lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="279">
                     <rect key="frame" x="106" y="287" width="422" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="Without reviews, others are less likely to discover this game."/>
+</label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="to leave a review of Lab Solitaire." lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="278">
                     <rect key="frame" x="184" y="268" width="277" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                     <color key="textColor" red="0.19758065044879913" green="0.19758065044879913" blue="0.19758065044879913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </label>
+                                    <accessibility key="accessibilityConfiguration" identifier="to leave a review of Lab Solitaire."/>
+</label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
         </view>

@@ -1935,20 +1935,34 @@ skipAudio:
 	// Release any cached data, images, etc that aren't in use.
 }
 
+- (void) _localizeViewTree: (UIView *) root
+{
+	for (UIView *child in root.subviews)
+	{
+		NSString *identifier = child.accessibilityIdentifier;
+		if (identifier.length > 0)
+		{
+			NSString *localized = NSLocalizedString (identifier, nil);
+			if ([child isKindOfClass: [UILabel class]])
+			{
+				((UILabel *) child).text = localized;
+			}
+			else if ([child isKindOfClass: [UIButton class]])
+			{
+				[(UIButton *) child setTitle: localized forState: UIControlStateNormal];
+			}
+		}
+		[self _localizeViewTree: child];
+	}
+}
+
 - (void) viewDidLoad
 {
-//	if ([self respondsToSelector:@selector(topLayoutGuide)])
-//	{
-//		[self.view removeConstraint: self.containerTopSpaceConstraint];
-//		
-//		self.containerTopSpaceConstraint = [NSLayoutConstraint constraintWithItem: self.contentView 
-//				attribute: NSLayoutAttributeTop relatedBy: NSLayoutRelationEqual toItem: self.topLayoutGuide
-//				attribute: NSLayoutAttributeBottom multiplier: 1 constant: 0];
-//		
-//		[self.view addConstraint: self.containerTopSpaceConstraint];
-//		[self.view setNeedsUpdateConstraints];
-//		[self.view layoutIfNeeded];
-//	}
+    [super viewDidLoad];
+	[self _localizeViewTree: _aboutView];
+	[self _localizeViewTree: _rulesView];
+	[self _localizeViewTree: _settingsView];
+	[self _localizeViewTree: _gameOverView];
 }
 
 // ------------------------------------------------------------------------------------------------- viewDidLayoutSubviews
