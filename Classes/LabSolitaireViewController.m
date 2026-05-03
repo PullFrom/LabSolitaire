@@ -682,7 +682,7 @@ enum
 	if (number)
 		_autoPutawayMode = [number integerValue];
 	else
-		_autoPutawayMode = kAutoPutawayModeAll;
+		_autoPutawayMode = kAutoPutawayModeSmart;
 	
 	// What is the user preference for sound playback?
 	defaults = [NSUserDefaults standardUserDefaults];
@@ -1582,7 +1582,7 @@ skipAudio:
 
 - (void) settingsInfo: (id) sender
 {
-	// Switch to display the "settings view".
+	[self updateSettingsInterface];
 	[self _addInfoSubview: _settingsView];
 }
 
