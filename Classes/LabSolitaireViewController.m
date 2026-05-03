@@ -1346,11 +1346,10 @@ skipAudio:
 	_darkView.userInteractionEnabled = YES;
 	
 	// Animate-in the view sliding in while the dark view becomes darker.
-	[UIView beginAnimations: @"SlideInInfoView" context: nil];
-	[UIView setAnimationDuration: 0.5];
-	_darkView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.75];
-	[self _positionSubviewBottomAndCentered: _aboutView];
-	[UIView commitAnimations];
+	[UIView animateWithDuration: 0.5 animations: ^{
+		self->_darkView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.75];
+		[self _positionSubviewBottomAndCentered: self->_aboutView];
+	} completion: nil];
 }
 
 // ------------------------------------------------------------------------------------------ openLabSolitaireInAppStore
@@ -1508,12 +1507,14 @@ skipAudio:
 	[self _positionSubviewBottomAndCentered: subview];
 	
 	// Fade-out the previous view while fading in the new one.
-	[UIView beginAnimations: @"CrossfadeInfoSubview" context: (__bridge void *) subview];
-	[UIView setAnimationDelegate: self];
-	[UIView setAnimationDidStopSelector: @selector (animationStopped:finished:context:)];
-	subview.alpha = 1.0;
-	_currentInfoView.alpha = 0.0;
-	[UIView commitAnimations];
+	[UIView animateWithDuration: 0.2 animations: ^{
+		subview.alpha = 1.0;
+		self->_currentInfoView.alpha = 0.0;
+	} completion: ^(BOOL finished) {
+		[self->_currentInfoView removeFromSuperview];
+		self->_currentInfoView = subview;
+		[self->_darkView bringSubviewToFront: self->_currentInfoView];
+	}];
 }
 
 // -------------------------------------------------------------------------------------------------
@@ -1559,16 +1560,44 @@ skipAudio:
 	mainBounds = self.view.bounds;
 
 	// Animate-out the view sliding out while the dark view becomes clear again.
-	[UIView beginAnimations: @"SlideOutInfoView" context: nil];
-	[UIView setAnimationDuration: 0.5];
-	[UIView setAnimationDelegate: self];
-	[UIView setAnimationDidStopSelector: @selector (animationStopped:finished:context:)];
-	_darkView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.0];
 	frame = _currentInfoView.frame;
 	frame.origin = CGPointMake ((mainBounds.size.width - frame.size.width) / 2.0,
 	                            mainBounds.size.height);
-	_currentInfoView.frame = frame;
-	[UIView commitAnimations];
+	[UIView animateWithDuration: 0.5 animations: ^{
+		self->_darkView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.0];
+		self->_currentInfoView.frame = frame;
+	} completion: ^(BOOL finished) {
+		self->_infoViewIsOpen = NO;
+
+		if (self->_currentInfoView)
+		{
+			[self->_currentInfoView removeFromSuperview];
+			self->_currentInfoView = nil;
+		}
+
+		if (self->_autoPutaway)
+		{
+			if ((self->_wasAutoPutawayMode == kAutoPutawayModeAll) && (self->_autoPutawayMode == kAutoPutawayModeSmart))
+			{
+				[self->_worriedCards removeAllObjects];
+			}
+
+			if ((self->_wasAutoPutaway == NO) || ((self->_wasAutoPutawayMode == kAutoPutawayModeSmart) && (self->_autoPutawayMode == kAutoPutawayModeAll)))
+			{
+				self->_putawayTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target: self selector:
+						@selector (putawayTimer:) userInfo: nil repeats: NO];
+			}
+		}
+
+		if (self->_gameWon)
+		{
+			if (self->_playSounds)
+			{
+				[[LSAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
+			}
+			[self resetTable: YES];
+		}
+	}];
 	
 	// If this is the first time we are dismissing the info view after launching the app.
 	if (_splashDismissed == NO)
@@ -1733,13 +1762,15 @@ skipAudio:
 		// Update statistics.
 		[self updateLocalStatisticsInterface];
 		
-		// Animate-out the view sliding out while the dark view becomes clear again.
-		[UIView beginAnimations: @"CrossfadeInfoSubview" context: (__bridge void *) _gameOverView];
-		[UIView setAnimationDelegate: self];
-		[UIView setAnimationDidStopSelector: @selector (animationStopped:finished:context:)];
-		_gameOverView.alpha = 1.0;
-		_currentInfoView.alpha = 0.0;
-		[UIView commitAnimations];
+		// Crossfade to the game over view.
+		[UIView animateWithDuration: 0.2 animations: ^{
+			self->_gameOverView.alpha = 1.0;
+			self->_currentInfoView.alpha = 0.0;
+		} completion: ^(BOOL finished) {
+			[self->_currentInfoView removeFromSuperview];
+			self->_currentInfoView = self->_gameOverView;
+			[self->_darkView bringSubviewToFront: self->_currentInfoView];
+		}];
 	}
 	else
 	{
@@ -1756,80 +1787,15 @@ skipAudio:
 		_darkView.userInteractionEnabled = YES;
 		
 		// Animate-in the view sliding in while the dark view becomes darker.
-		[UIView beginAnimations: @"SlideInInfoView" context: nil];
-		[UIView setAnimationDuration: 0.5];
-		[UIView setAnimationDelegate: self];
-		[UIView setAnimationDidStopSelector: @selector (animationStopped:finished:context:)];
-		_darkView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.75];
-		[self _positionSubviewBottomAndCentered: _gameOverView];
-		[UIView commitAnimations];
-	}
-}
-
-// ----------------------------------------------------------------------------------- animationDidStop:finished:context
-
-- (void) animationStopped: (NSString *) animationID finished: (NSNumber *) finished context: (void *) context
-{
-	if ([animationID isEqualToString: @"SlideInInfoView"])
-	{
-		if (_currentInfoView == _gameOverView)
-		{
-			// Player won sound.
-			if (_playSounds)
+		[UIView animateWithDuration: 0.5 animations: ^{
+			self->_darkView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.75];
+			[self _positionSubviewBottomAndCentered: self->_gameOverView];
+		} completion: ^(BOOL finished) {
+			if (self->_playSounds)
 			{
 				[[LSAudioEngine sharedEngine] playEffect: @"Babip.wav"];
 			}
-		}
-	}
-	else if ([animationID isEqualToString: @"SlideOutInfoView"])
-	{
-		_infoViewIsOpen = NO;
-		
-		// No longer capture touch events.
-		_darkView.userInteractionEnabled = NO;
-		
-		if (_currentInfoView)
-		{
-			[_currentInfoView removeFromSuperview];
-			_currentInfoView = nil;
-		}
-		
-		// Fire off auto-putaway timer if the user enabled it.
-		if (_autoPutaway)
-		{
-			// If the player has 'worried back' cards in "All" putaway mode, we should clear that history and mark the 
-			// cards 'worry free'.
-			if ((_wasAutoPutawayMode == kAutoPutawayModeAll) && (_autoPutawayMode == kAutoPutawayModeSmart))
-			{
-				[_worriedCards removeAllObjects];
-			}
-			
-			// Fire off timer to look for cards to put up.
-			if ((_wasAutoPutaway == NO) || ((_wasAutoPutawayMode == kAutoPutawayModeSmart) && (_autoPutawayMode == kAutoPutawayModeAll)))
-			{
-				_putawayTimer = [NSTimer scheduledTimerWithTimeInterval: 1.0 target: self selector: 
-						@selector (putawayTimer:) userInfo: nil repeats: NO];
-			}
-		}
-		
-		// Start new game.
-		if (_gameWon)
-		{
-			// Shuffle sound.
-			if (_playSounds)
-			{
-				[[LSAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
-			}
-			
-			// Deal new hand.
-			[self resetTable: YES];
-		}
-	}
-	else if ([animationID isEqualToString: @"CrossfadeInfoSubview"])
-	{
-		[_currentInfoView removeFromSuperview];
-		_currentInfoView = (__bridge UIView *) context;
-		[_darkView bringSubviewToFront: _currentInfoView];
+		}];
 	}
 }
 
