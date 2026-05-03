@@ -56,8 +56,6 @@
 #define kPutawayAnimationDuration		0.25	// 0.30
 #define kPutawayAnimationDelay			0.25	// 0.30
 #define kWaitForTouchToEndDelay			0.02
-#define kResetTableAlertTag				1
-#define kUndoAllAlertTag				2
 #define	kMaxLeaderboardScores			15	// 10
 
 
@@ -952,13 +950,19 @@ skipAudio:
 	}
 	else
 	{
-		UIAlertView	*alert;
-		
-		// A game is in progress, allow the user to cancel the new game.
-		alert = [[UIAlertView alloc] initWithTitle: NEW_GAME_TITLE message: NEW_GAME_MESSAGE delegate: self 
-				cancelButtonTitle: NEW_GAME_CANCEL_BUTTON otherButtonTitles: NEW_GAME_BUTTON, nil];
-		alert.tag = kResetTableAlertTag;
-		[alert show];
+		UIAlertController *alert = [UIAlertController alertControllerWithTitle: NEW_GAME_TITLE
+				message: NEW_GAME_MESSAGE preferredStyle: UIAlertControllerStyleAlert];
+		[alert addAction: [UIAlertAction actionWithTitle: NEW_GAME_CANCEL_BUTTON
+				style: UIAlertActionStyleCancel handler: nil]];
+		[alert addAction: [UIAlertAction actionWithTitle: NEW_GAME_BUTTON
+				style: UIAlertActionStyleDestructive handler: ^(UIAlertAction *action) {
+			if (self->_playSounds)
+			{
+				[[LSAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
+			}
+			[self resetTable: YES];
+		}]];
+		[self presentViewController: alert animated: YES completion: nil];
 	}
 }
 
@@ -1005,20 +1009,29 @@ skipAudio:
 {
 	if (([[CETableView sharedCardUndoManager] canUndo]) && ([self seedUsedLast] != NSNotFound))
 	{
-		UIAlertView	*alert;
-		
 		if (_playSounds)
 		{
 			[[LSAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
 		}
-		
+
 		_undoAllAlertOpen = YES;
-		
-		// Allow the player to decide if they want to Undo to the beginning of the game.
-		alert = [[UIAlertView alloc] initWithTitle: UNDO_TITLE message: UNDO_MESSAGE delegate: self 
-				cancelButtonTitle: UNDO_CANCEL_BUTTON otherButtonTitles: UNDO_ALL_BUTTON, nil];
-		alert.tag = kUndoAllAlertTag;
-		[alert show];
+
+		UIAlertController *alert = [UIAlertController alertControllerWithTitle: UNDO_TITLE
+				message: UNDO_MESSAGE preferredStyle: UIAlertControllerStyleAlert];
+		[alert addAction: [UIAlertAction actionWithTitle: UNDO_CANCEL_BUTTON
+				style: UIAlertActionStyleCancel handler: ^(UIAlertAction *action) {
+			self->_undoAllAlertOpen = NO;
+		}]];
+		[alert addAction: [UIAlertAction actionWithTitle: UNDO_ALL_BUTTON
+				style: UIAlertActionStyleDestructive handler: ^(UIAlertAction *action) {
+			self->_undoAllAlertOpen = NO;
+			if (self->_playSounds)
+			{
+				[[LSAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
+			}
+			[self resetTable: NO];
+		}]];
+		[self presentViewController: alert animated: YES completion: nil];
 	}
 }
 
@@ -1936,39 +1949,6 @@ skipAudio:
 	_undoHeldTimer = nil;
 }
 
-
-#pragma mark ------ alert view delegate methods
-//--------------------------------------------------------------------------------------- alertView:clickedButtonAtIndex
-
-- (void) alertView: (UIAlertView *) alertView clickedButtonAtIndex: (NSInteger) buttonIndex
-{
-	if (alertView.tag == kResetTableAlertTag)
-	{
-		if (buttonIndex == 1)		// New game.
-		{
-			if (_playSounds)
-			{
-				[[LSAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
-			}
-			
-			[self resetTable: YES];
-		}
-	}
-	else if (alertView.tag == kUndoAllAlertTag)
-	{
-		_undoAllAlertOpen = NO;
-		
-		if (buttonIndex == 1)		// Undo all.
-		{
-			if (_playSounds)
-			{
-				[[LSAudioEngine sharedEngine] playEffect: @"Shuffle.wav"];
-			}
-			
-			[self resetTable: NO];
-		}
-	}
-}
 
 #pragma mark ------ stack view delegate methods
 // --------------------------------------------------------------------------------------------- stackView:allowDragCard
