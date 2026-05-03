@@ -1963,6 +1963,11 @@ skipAudio:
 	[self _localizeViewTree: _rulesView];
 	[self _localizeViewTree: _settingsView];
 	[self _localizeViewTree: _gameOverView];
+
+	NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"] ?: @"?";
+	NSString *year = [@(__DATE__) substringFromIndex: 7];
+	UILabel *vcLabel = (UILabel *) [_aboutView viewWithTag: 600];
+	vcLabel.text = [NSString stringWithFormat: @"V. %@ ©2011–%@ Soft Dorothy LLC", version, year];
 }
 
 // ------------------------------------------------------------------------------------------------- viewDidLayoutSubviews
