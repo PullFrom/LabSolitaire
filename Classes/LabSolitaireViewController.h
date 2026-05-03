@@ -25,6 +25,7 @@
 	UIButton					*_undoButton;
 	UIButton					*_infoButton;
 	UIInterfaceOrientation		_orientation;
+	BOOL						_initialLayoutApplied;
 	NSTimer						*_putawayTimer;
 	NSTimer						*_undoHeldTimer;
 	BOOL						_undoAllAlertOpen;

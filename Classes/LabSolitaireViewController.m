@@ -90,8 +90,9 @@ enum
 	CGRect	mainBounds;
 	CGRect	buttonFrame;
 
-	mainBounds = [[UIScreen mainScreen] bounds];
-	
+	mainBounds = self.view.bounds;
+	[(CETableView *) self.view setLandscape: !UIInterfaceOrientationIsPortrait (orientation)];
+
 	if (UIInterfaceOrientationIsPortrait (orientation))
 	{
 		int		i;
@@ -155,21 +156,21 @@ enum
 			_tableauViews[i].frame = CGRectMake (kLLayoutHOffset + (i * (kLTableauHGap + kCardWide)), kLTableauVOffset, kCardWide, kLTableauTall);
 		
 		buttonFrame = _newButton.frame;
-		buttonFrame.origin = CGPointMake (mainBounds.size.height - kButtonWide, mainBounds.size.width - kLNewButtonY);
+		buttonFrame.origin = CGPointMake (mainBounds.size.width - kButtonWide, mainBounds.size.height - kLNewButtonY);
 		_newButton.frame = buttonFrame;
 		[_newButton setImage: [UIImage imageNamed: @"NewSelectedL"] forState: UIControlStateHighlighted];
-		
+
 		buttonFrame = _undoButton.frame;
-		buttonFrame.origin = CGPointMake (mainBounds.size.height - kButtonWide, mainBounds.size.width - kLUndoButtonY);
+		buttonFrame.origin = CGPointMake (mainBounds.size.width - kButtonWide, mainBounds.size.height - kLUndoButtonY);
 		_undoButton.frame = buttonFrame;
 		[_undoButton setImage: [UIImage imageNamed: @"UndoSelectedL"] forState: UIControlStateHighlighted];
-		
+
 		buttonFrame = _infoButton.frame;
-		buttonFrame.origin = CGPointMake (mainBounds.size.height - kButtonWide, mainBounds.size.width - kLInfoButtonY);
+		buttonFrame.origin = CGPointMake (mainBounds.size.width - kButtonWide, mainBounds.size.height - kLInfoButtonY);
 		_infoButton.frame = buttonFrame;
 		[_infoButton setImage: [UIImage imageNamed: @"InfoSelectedL"] forState: UIControlStateHighlighted];
-		
-		_darkView.frame = CGRectMake (0.0, 0.0, mainBounds.size.height, mainBounds.size.width);
+
+		_darkView.frame = CGRectMake (0.0, 0.0, mainBounds.size.width, mainBounds.size.height);
 		
 //		if (_infoView)
 		if ((0))
@@ -664,8 +665,10 @@ enum
 	int				i;
 	CGRect			mainBounds;
 	
-	// Store orientation.
-	_orientation = self.interfaceOrientation;
+	CGRect viewBounds = self.view.bounds;
+	_orientation = (viewBounds.size.width > viewBounds.size.height)
+		? UIInterfaceOrientationLandscapeRight
+		: UIInterfaceOrientationPortrait;
 	
 	// Get standard defaults, what is the user preference for auto-putaway.
 	defaults = [NSUserDefaults standardUserDefaults];
@@ -709,6 +712,7 @@ enum
 	// Assign portrait and landscape images.
 	[(CETableView *) self.view setPortraitImagePath: @"TablePortrait"];
 	[(CETableView *) self.view setLandscapeImagePath: @"TableLandscape"];
+	self.view.contentMode = UIViewContentModeRedraw;
 	
 	// Create cells.
 	for (i = 0; i < 4; i++)
@@ -1465,19 +1469,11 @@ skipAudio:
 
 - (void) _positionSubviewBottomAndCentered: (UIView *) subview
 {
-	// Get main bounds and orientation.
-	CGRect mainBounds = [[UIScreen mainScreen] bounds];
-	BOOL portrait = UIInterfaceOrientationIsPortrait ([UIApplication sharedApplication].statusBarOrientation);
-	
+	CGRect mainBounds = self.view.bounds;
+
 	CGRect frame = subview.frame;
-	if (portrait)
-	{
-		frame.origin = CGPointMake ((mainBounds.size.width - frame.size.width) / 2.0, mainBounds.size.height - frame.size.height);
-	}
-	else
-	{
-		frame.origin = CGPointMake ((mainBounds.size.height - frame.size.width) / 2.0, mainBounds.size.width - frame.size.height);
-	}
+	frame.origin = CGPointMake ((mainBounds.size.width - frame.size.width) / 2.0,
+	                            mainBounds.size.height - frame.size.height);
 	subview.frame = frame;
 }
 
@@ -1533,17 +1529,19 @@ skipAudio:
 - (void) closeInfo: (id) sender
 {
 	CGRect		mainBounds;
-	BOOL		portrait;
 	CGRect		frame;
 	
 	if (_playSounds)
 	{
 		[[LSAudioEngine sharedEngine] playEffect: @"ClickClose.wav"];
 	}
-	
-	mainBounds = [[UIScreen mainScreen] bounds];
-	portrait = UIInterfaceOrientationIsPortrait ([UIApplication sharedApplication].statusBarOrientation);
-	
+
+	// Disable touch capture immediately, so buttons underneath remain responsive
+	// even if the animation is disrupted by rotation.
+	_darkView.userInteractionEnabled = NO;
+
+	mainBounds = self.view.bounds;
+
 	// Animate-out the view sliding out while the dark view becomes clear again.
 	[UIView beginAnimations: @"SlideOutInfoView" context: nil];
 	[UIView setAnimationDuration: 0.5];
@@ -1551,14 +1549,8 @@ skipAudio:
 	[UIView setAnimationDidStopSelector: @selector (animationStopped:finished:context:)];
 	_darkView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.0];
 	frame = _currentInfoView.frame;
-	if (portrait)
-	{
-		frame.origin = CGPointMake ((mainBounds.size.width - frame.size.width) / 2.0, mainBounds.size.height);
-	}
-	else
-	{
-		frame.origin = CGPointMake ((mainBounds.size.height - frame.size.width) / 2.0, mainBounds.size.width);
-	}
+	frame.origin = CGPointMake ((mainBounds.size.width - frame.size.width) / 2.0,
+	                            mainBounds.size.height);
 	_currentInfoView.frame = frame;
 	[UIView commitAnimations];
 	
@@ -1833,6 +1825,24 @@ skipAudio:
 	[self adjustLayoutForOrientation: orientation];
 }
 
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+	[super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+
+	UIInterfaceOrientation newOrientation = (size.width > size.height)
+		? UIInterfaceOrientationLandscapeRight
+		: UIInterfaceOrientationPortrait;
+
+	[coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+		[self adjustLayoutForOrientation:newOrientation];
+
+		if (self->_infoViewIsOpen && self->_currentInfoView) {
+			[self _positionSubviewBottomAndCentered:self->_currentInfoView];
+		}
+	} completion:nil];
+}
+
 /*
 - (void) willAnimateFirstHalfOfRotationToInterfaceOrientation: (UIInterfaceOrientation) toOrientation duration: (NSTimeInterval) duration
 {
@@ -1878,6 +1888,23 @@ skipAudio:
 //		[self.view setNeedsUpdateConstraints];
 //		[self.view layoutIfNeeded];
 //	}
+}
+
+// ------------------------------------------------------------------------------------------------- viewDidLayoutSubviews
+
+- (void) viewDidLayoutSubviews
+{
+	[super viewDidLayoutSubviews];
+
+	if (!_initialLayoutApplied)
+	{
+		_initialLayoutApplied = YES;
+		CGRect bounds = self.view.bounds;
+		UIInterfaceOrientation orientation = (bounds.size.width > bounds.size.height)
+			? UIInterfaceOrientationLandscapeRight
+			: UIInterfaceOrientationPortrait;
+		[self adjustLayoutForOrientation:orientation];
+	}
 }
 
 // ------------------------------------------------------------------------------------------------------- viewDidUnload
