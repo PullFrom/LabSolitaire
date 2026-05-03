@@ -1341,10 +1341,17 @@ skipAudio:
 	
 	_aboutView.alpha = 1.0;
 	[_darkView addSubview: _aboutView];
-	
+
+	// Position the about view off-screen below before sliding in.
+	CGRect mainBounds = self.view.bounds;
+	CGRect frame = _aboutView.frame;
+	frame.origin.x = (mainBounds.size.width - frame.size.width) / 2.0;
+	frame.origin.y = mainBounds.size.height;
+	_aboutView.frame = frame;
+
 	// Capture touch events.
 	_darkView.userInteractionEnabled = YES;
-	
+
 	// Animate-in the view sliding in while the dark view becomes darker.
 	[UIView animateWithDuration: 0.5 animations: ^{
 		self->_darkView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.75];
@@ -1779,13 +1786,20 @@ skipAudio:
 		// Add "Game Over" view.
 		[_darkView addSubview: _gameOverView];
 		_currentInfoView = _gameOverView;
-		
+
 		// Update statistics.
 		[self updateLocalStatisticsInterface];
-		
+
+		// Position the game over view off-screen below before sliding in.
+		CGRect mainBounds = self.view.bounds;
+		CGRect frame = _gameOverView.frame;
+		frame.origin.x = (mainBounds.size.width - frame.size.width) / 2.0;
+		frame.origin.y = mainBounds.size.height;
+		_gameOverView.frame = frame;
+
 		// Capture touch events.
 		_darkView.userInteractionEnabled = YES;
-		
+
 		// Animate-in the view sliding in while the dark view becomes darker.
 		[UIView animateWithDuration: 0.5 animations: ^{
 			self->_darkView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.75];
