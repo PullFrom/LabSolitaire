@@ -724,7 +724,7 @@ enum
 		[_cellViews[i] setFillColor: nil];
 		[_cellViews[i] setLabelColor: [UIColor colorWithWhite: 0.0 alpha: 0.22]];
 		[_cellViews[i] setLabelFont: [UIFont fontWithName: @"Arial" size: 32.0]];
-		[_cellViews[i] setLabel: @"Free"];
+		[_cellViews[i] setLabel: NSLocalizedString(@"Free", @"Cell label shown when a free cell is empty")];
 		[_cellViews[i] setTag: i];
 		[_cellViews[i] setDelegate: self];
 		[_cellViews[i] setIdentifier: @"Cell"];
@@ -769,7 +769,7 @@ enum
 		[_tableauViews[i] setFillColor: nil];
 		[_tableauViews[i] setLabelColor: [UIColor colorWithWhite: 0.0 alpha: 0.22]];
 		[_tableauViews[i] setLabelFont: [UIFont fontWithName: @"Arial" size: 32.0]];
-		[_tableauViews[i] setLabel: @"Any"];
+		[_tableauViews[i] setLabel: NSLocalizedString(@"Any", @"Tableau label")];
 #else	// DISPLAY_OUTLINE_IN_TABLEAU
 		[_tableauViews[i] setBorderColor: nil];
 		[_tableauViews[i] setFillColor: nil];
@@ -1107,7 +1107,7 @@ skipAudio:
 			if (_localPlayer.alias)
 				[allNames appendString: _localPlayer.alias];
 			else
-				[allNames appendString: @"You"];
+				[allNames appendString: NSLocalizedString(@"You", @"Leaderboard fallback when no player name is available")];
 			count = count + 1;
 		}
 	}
@@ -1116,7 +1116,7 @@ skipAudio:
 		if (_localPlayer.alias)
 			[allNames appendString: _localPlayer.alias];
 		else
-			[allNames appendString: @"You"];
+			[allNames appendString: NSLocalizedString(@"You", @"Leaderboard fallback when no player name is available")];
 		count = count + 1;
 	}
 	
