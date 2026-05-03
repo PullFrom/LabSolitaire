@@ -18,6 +18,18 @@ static NSUndoManager	*_gSharedUndoManager = nil;
 
 @synthesize portraitImagePath = _portraitImagePath;
 @synthesize landscapeImagePath = _landscapeImagePath;
+@synthesize landscape = _landscape;
+
+// --------------------------------------------------------------------------------------------------------- setLandscape
+
+- (void) setLandscape: (BOOL) landscape
+{
+	if (_landscape != landscape)
+	{
+		_landscape = landscape;
+		[self setNeedsDisplay];
+	}
+}
 
 // ----------------------------------------------------------------------------------------------- sharedCardUndoManager
 
@@ -156,18 +168,7 @@ bail:
 
 - (void) drawRect: (CGRect) rect
 {
-	UIInterfaceOrientation	orientation = UIInterfaceOrientationPortrait;
-
-	for (UIScene *scene in [[UIApplication sharedApplication] connectedScenes])
-	{
-		if ([scene isKindOfClass: [UIWindowScene class]] &&
-			scene.activationState == UISceneActivationStateForegroundActive)
-		{
-			orientation = ((UIWindowScene *) scene).interfaceOrientation;
-			break;
-		}
-	}
-	if (UIInterfaceOrientationIsPortrait (orientation))
+	if (!_landscape)
 	{
 		if (_portraitImagePath)
 			[[UIImage imageNamed: _portraitImagePath] drawAtPoint: CGPointMake (0.0, 0.0)];

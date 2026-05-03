@@ -795,7 +795,7 @@
 				LastUpgradeCheck = 0710;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = FNE3M5XN94;
+						DevelopmentTeam = 9FFTJDNX47;
 					};
 				};
 			};
@@ -1069,6 +1069,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 9FFTJDNX47;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1077,7 +1078,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.softdorothy.labsolitaire;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.pullfrom.labsolitaire;
 				PRODUCT_NAME = "Lab Solitaire";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1091,13 +1092,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = 9FFTJDNX47;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = LabSolitaire_Prefix.pch;
 				INFOPLIST_FILE = "LabSolitaire-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.card-games";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.softdorothy.labsolitaire;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.pullfrom.labsolitaire;
 				PRODUCT_NAME = "Lab Solitaire";
 				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
