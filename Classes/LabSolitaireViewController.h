@@ -4,6 +4,7 @@
 
 
 #import <AVFoundation/AVFoundation.h>
+#import <GameKit/GameKit.h>
 #import <UIKit/UIKit.h>
 #import "CardEngine.h"
 #import "LocalPlayer.h"
@@ -16,10 +17,10 @@
 @class LSStackView;
 
 
-@interface LabSolitaireViewController : UIViewController <CEStackViewDelegate, LocalPlayerDelegate>
+@interface LabSolitaireViewController : UIViewController <CEStackViewDelegate, LocalPlayerDelegate, GKGameCenterControllerDelegate>
 {
-	LSStackView					*_cellViews[4];	
-	LSStackView					*_foundationViews[4];	
+	LSStackView					*_cellViews[4];
+	LSStackView					*_foundationViews[4];
 	LSStackView					*_tableauViews[8];
 	UIButton					*_newButton;
 	UIButton					*_undoButton;
@@ -42,12 +43,6 @@
 	BOOL						_splashDismissed;
 	NSMutableArray				*_worriedCards;
 	LocalPlayer					*_localPlayer;
-	NSMutableArray				*_leaderboardPlayerIDs;
-	NSMutableArray				*_leaderboardGamesPlayed;
-	NSMutableArray				*_leaderboardGamesWon;
-	NSArray						*_leaderboardAliases;
-	BOOL						_leaderboardFriendsOnly;
-	NSUInteger					_playerLeaderboardIndex;
 	NSUInteger					_dealIndex;
 	UIView						*_currentInfoView;							// Weak reference.
 	UIView						*_rotatingView;
@@ -68,15 +63,8 @@
 	IBOutlet UILabel			*_gamesPlayedLabel;
 	IBOutlet UILabel			*_gamesWonLabel;
 	IBOutlet UILabel			*_gamesWonPercentageLabel;
-	IBOutlet UILabel			*_displayScopeLabel;
-	IBOutlet UIButton			*_friendScopeButton;
-	IBOutlet UIButton			*_allScopeButton;
-	IBOutlet UIImageView		*_scopeSelectedImage;
-	IBOutlet UILabel			*_globalScoreNameLabel;
-	IBOutlet UILabel			*_globalScorePlayedLabel;
-	IBOutlet UILabel			*_globalScoreWonLabel;
-	IBOutlet UILabel			*_globalScorePercentLabel;
-	IBOutlet UIImageView		*_highlightView;
+	IBOutlet UILabel			*_personalScoreLabel;
+	IBOutlet UIButton			*_gameCenterButton;
 }
 
 - (void) createCardTableLayout;
@@ -95,7 +83,7 @@
 - (IBAction) toggleAutoPutaway: (id) sender;
 - (IBAction) selectAutoPutawayMode: (id) sender;
 - (IBAction) toggleSound: (id) sender;
-- (IBAction) selectLeaderboardScope: (id) sender;
+- (IBAction) openGameCenter: (id) sender;
 - (IBAction) openGameOverView: (id) sender;
 
 @end

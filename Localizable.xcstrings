@@ -459,6 +459,36 @@
         }
       }
     },
+    "Game Center" : {
+      "comment" : "Button label to open the system Game Center UI",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Game Center"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Game Center"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Game Center"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Game Center"
+          }
+        }
+      }
+    },
     "Games Played" : {
       "comment" : "Statistics label",
       "extractionState" : "manual",
@@ -515,6 +545,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "勝った回数"
+          }
+        }
+      }
+    },
+    "Games Won: %1$d of %2$d (%3$@%%)" : {
+      "comment" : "Personal score summary in Settings tab. %1$d = games won, %2$d = games played, %3$@ = win percentage or em-dash",
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gewonnen: %1$d von %2$d (%3$@%%)"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Games Won: %1$d of %2$d (%3$@%%)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gagnées : %1$d sur %2$d (%3$@%%)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "勝利: %2$d 中 %1$d (%3$@%%)"
           }
         }
       }
@@ -1282,6 +1342,7 @@
     },
     "You" : {
       "comment" : "Leaderboard fallback when no player name is available",
+      "extractionState" : "stale",
       "localizations" : {
         "de" : {
           "stringUnit" : {

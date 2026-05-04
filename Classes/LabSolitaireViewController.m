@@ -48,35 +48,26 @@
 #define kLUndoButtonY					136	// 135
 #define kLInfoButtonY					83	// 82
 
-#define kHighlighterVOffset				328
-
 // Misc.
 #define kDealAnimationDuration			0.25
 #define kDealAnimationDelay				0.23
 #define kPutawayAnimationDuration		0.25	// 0.30
 #define kPutawayAnimationDelay			0.25	// 0.30
 #define kWaitForTouchToEndDelay			0.02
-#define	kMaxLeaderboardScores			15	// 10
 #define kPaperTabletBackgroundTag		42
 
 
 enum
 {
-	kNoDragRestriction = 0, 
-	kDisallowEmptyColumnDragRestriction = 2, 
+	kNoDragRestriction = 0,
+	kDisallowEmptyColumnDragRestriction = 2,
 	kEmptyColumnOnlyDragRestriction = 3
 };
 
 enum
 {
-	kAutoPutawayModeSmart = 0, 
+	kAutoPutawayModeSmart = 0,
 	kAutoPutawayModeAll = 1
-};
-
-enum
-{
-	kLeaderboardMostPlayedMode = 0, 
-	kLeaderboardMostWonMode = 1
 };
 
 
@@ -696,18 +687,6 @@ enum
 		_playSounds = YES;
 	}
 	
-	// What is the user preference for leaderboard scope?
-	defaults = [NSUserDefaults standardUserDefaults];
-	number = [defaults objectForKey: @"LeaderboardScope"];
-	if (number)
-	{
-		_leaderboardFriendsOnly = [number boolValue];
-	}
-	else
-	{
-		_leaderboardFriendsOnly = NO;
-	}
-	
 	// Assign portrait and landscape images.
 	[(CETableView *) self.view setPortraitImagePath: @"TablePortrait"];
 	[(CETableView *) self.view setLandscapeImagePath: @"TableLandscape"];
@@ -841,9 +820,6 @@ skipAudio:
 	// Create local player object.
 	_localPlayer = [[LocalPlayer alloc] init];
 	_localPlayer.delegate = self;
-	_leaderboardPlayerIDs = [[NSMutableArray alloc] initWithCapacity: 3];
-	_leaderboardGamesPlayed = [[NSMutableArray alloc] initWithCapacity: 3];
-	_leaderboardGamesWon = [[NSMutableArray alloc] initWithCapacity: 3];
 	
 	// Listen for these.
 	[[NSNotificationCenter defaultCenter] addObserver: self selector: @selector (cardDragged:) 
@@ -1067,245 +1043,6 @@ skipAudio:
 	_undoHeldTimer = nil;
 }
 
-// ----------------------------------------------------------------------------------------- updateGlobalScoresInterface
-
-- (void) updateGlobalScoresInterface
-{
-	NSMutableString	*allNames;
-	NSMutableString	*allPlayed;
-	NSMutableString	*allWon;
-	NSMutableString	*allPercent;
-	NSUInteger		count;
-	unichar			carriageReturn = 0x000D;
-	CGRect			frame;
-	NSInteger		played = 0;
-	NSInteger		won = 0;
-	BOOL			appendedColon = NO;
-	
-	// Leaderboard alias's.
-	allNames = [NSMutableString stringWithCapacity: 80];
-	count = 0;
-	if ((_leaderboardAliases) && ([_leaderboardAliases count] > 0))
-	{
-		for (NSString *name in _leaderboardAliases)
-		{
-			[allNames appendString: name];
-			[allNames appendString: [NSString stringWithCharacters: &carriageReturn length: 1]];
-			count = count + 1;
-		}
-		
-		// Append player if they are not in the list.
-		if (_playerLeaderboardIndex == NSNotFound)
-		{
-			if (count >= 10)
-			{
-				appendedColon = YES;
-				[allNames appendString: @"     :"];
-				[allNames appendString: [NSString stringWithCharacters: &carriageReturn length: 1]];
-				count = count + 1;
-			}
-			if (_localPlayer.alias)
-				[allNames appendString: _localPlayer.alias];
-			else
-				[allNames appendString: NSLocalizedString(@"You", @"Leaderboard fallback when no player name is available")];
-			count = count + 1;
-		}
-	}
-	else
-	{
-		if (_localPlayer.alias)
-			[allNames appendString: _localPlayer.alias];
-		else
-			[allNames appendString: NSLocalizedString(@"You", @"Leaderboard fallback when no player name is available")];
-		count = count + 1;
-	}
-	
-	_globalScoreNameLabel.numberOfLines = count;
-	frame = _globalScoreNameLabel.frame;
-	frame.size.height = count * 20;
-	_globalScoreNameLabel.frame = frame;
-	_globalScoreNameLabel.text = allNames;
-	
-	// Leaderboard games played.
-	allPlayed = [NSMutableString stringWithCapacity: 80];
-	count = 0;
-	if ([_leaderboardGamesPlayed count] > 0)
-	{
-		for (NSString *number in _leaderboardGamesPlayed)
-		{
-			[allPlayed appendString: number];
-			[allPlayed appendString: [NSString stringWithCharacters: &carriageReturn length: 1]];
-			count = count + 1;
-		}
-		
-		// Append player's games played if they are not in the list.
-		if (_playerLeaderboardIndex == NSNotFound)
-		{
-			if (appendedColon)
-			{
-				[allPlayed appendString: @":"];
-				[allPlayed appendString: [NSString stringWithCharacters: &carriageReturn length: 1]];
-				count = count + 1;
-			}
-			
-			[_localPlayer retrieveLocalScore: &played forCategory: @"com.softdorothy.labsolitaire.games_played"];
-			[allPlayed appendString: [NSString stringWithFormat: @"%ld", (long) played]];
-			count = count + 1;
-		}
-	}
-	else
-	{
-		[_localPlayer retrieveLocalScore: &played forCategory: @"com.softdorothy.labsolitaire.games_played"];
-		[allPlayed appendString: [NSString stringWithFormat: @"%ld", (long) played]];
-		count = count + 1;
-	}
-	
-	_globalScorePlayedLabel.numberOfLines = count;
-	frame = _globalScorePlayedLabel.frame;
-	frame.size.height = count * 20;
-	_globalScorePlayedLabel.frame = frame;
-	_globalScorePlayedLabel.text = allPlayed;
-	
-	// Leaderboard games won.
-	allWon = [NSMutableString stringWithCapacity: 80];
-	count = 0;
-	if ([_leaderboardGamesWon count] > 0)
-	{
-		for (NSString *number in _leaderboardGamesWon)
-		{
-			[allWon appendString: number];
-			[allWon appendString: [NSString stringWithCharacters: &carriageReturn length: 1]];
-			count = count + 1;
-		}
-		
-		// Append player's games won if they are not in the list.
-		if (_playerLeaderboardIndex == NSNotFound)
-		{
-			if (appendedColon)
-			{
-				[allWon appendString: @":"];
-				[allWon appendString: [NSString stringWithCharacters: &carriageReturn length: 1]];
-				count = count + 1;
-			}
-			
-			[_localPlayer retrieveLocalScore: &won forCategory: @"com.softdorothy.labsolitaire.games_won"];
-			[allWon appendString: [NSString stringWithFormat: @"%ld", (long )won]];
-			count = count + 1;
-		}
-	}
-	else
-	{
-		[_localPlayer retrieveLocalScore: &won forCategory: @"com.softdorothy.labsolitaire.games_won"];
-		[allWon appendString: [NSString stringWithFormat: @"%ld", (long) won]];
-		count = count + 1;
-	}
-	
-	_globalScoreWonLabel.numberOfLines = count;
-	frame = _globalScoreWonLabel.frame;
-	frame.size.height = count * 20;
-	_globalScoreWonLabel.frame = frame;
-	_globalScoreWonLabel.text = allWon;
-	
-	// Leaderboard percentage games won.
-	allPercent = [NSMutableString stringWithCapacity: 80];
-	count = 0;
-	if (([_leaderboardGamesPlayed count] > 0) && ([_leaderboardGamesWon count] > 0) && 
-			([_leaderboardGamesPlayed count] == [_leaderboardGamesWon count]))
-	{
-		for (NSString *playedNumber in _leaderboardGamesPlayed)
-		{
-			NSInteger	gamesPlayed, gamesWon;
-			
-			gamesPlayed = [playedNumber integerValue];
-			gamesWon = [[_leaderboardGamesWon objectAtIndex: count] integerValue];
-			
-			if (gamesPlayed == 0)
-			{
-				[allPercent appendString: @"-"];
-				[allPercent appendString: [NSString stringWithCharacters: &carriageReturn length: 1]];				
-			}
-			else
-			{
-//				[allPercent appendString: [NSString stringWithFormat: @"%d%%", (gamesWon * 100) / gamesPlayed]];
-				[allPercent appendString: [NSString stringWithFormat: @"%ld%%", (long) round (((CGFloat) gamesWon * 100.0) / (CGFloat) gamesPlayed)]];
-				[allPercent appendString: [NSString stringWithCharacters: &carriageReturn length: 1]];				
-			}
-			
-			count = count + 1;
-		}
-		
-		// Append player's percentage games won if they are not in the list.
-		if (_playerLeaderboardIndex == NSNotFound)
-		{
-			if (appendedColon)
-			{
-				[allPercent appendString: @":"];
-				[allPercent appendString: [NSString stringWithCharacters: &carriageReturn length: 1]];
-				count = count + 1;
-			}
-			if (played == 0)
-				[allPercent appendString: @"-"];
-			else
-//				[allPercent appendString: [NSString stringWithFormat: @"%d%%", (won * 100) / played]];
-				[allPercent appendString: [NSString stringWithFormat: @"%ld%%", (long) round (((CGFloat) won * 100.0) / (CGFloat) played)]];
-			count = count + 1;
-		}
-	}
-	else
-	{
-		if (played == 0)
-			[allPercent appendString: @"-"];
-		else
-//			[allPercent appendString: [NSString stringWithFormat: @"%d%%", (won * 100) / played]];
-			[allPercent appendString: [NSString stringWithFormat: @"%ld%%", (long) round (((CGFloat) won * 100.0) / (CGFloat) played)]];
-		count = count + 1;
-	}
-	
-	_globalScorePercentLabel.numberOfLines = count;
-	frame = _globalScorePercentLabel.frame;
-	frame.size.height = count * 20;
-	_globalScorePercentLabel.frame = frame;
-	_globalScorePercentLabel.text = allPercent;
-	
-	// Hide/show leaderboard scope UI.
-	if (_localPlayer.usingGameCenter)
-	{
-		_displayScopeLabel.hidden = NO;
-		_friendScopeButton.hidden = NO;
-		_allScopeButton.hidden = NO;
-		_scopeSelectedImage.hidden = NO;
-	}
-	else
-	{
-		_displayScopeLabel.hidden = YES;
-		_friendScopeButton.hidden = YES;
-		_allScopeButton.hidden = YES;
-		_scopeSelectedImage.hidden = YES;
-	}
-	
-	// Leaderboard local player highlight.
-	frame = _highlightView.frame;
-	if (_leaderboardAliases)
-	{
-		if (_playerLeaderboardIndex == NSNotFound)
-		{
-			if (appendedColon)
-				frame.origin.y = kHighlighterVOffset + ((kMaxLeaderboardScores + 1) * 20);
-			else
-				frame.origin.y = kHighlighterVOffset + ([_leaderboardAliases count] * 20);
-		}
-		else
-		{
-			frame.origin.y = kHighlighterVOffset + (_playerLeaderboardIndex * 20);
-		}
-	}
-	else
-	{
-		frame.origin.y = kHighlighterVOffset;
-	}
-	_highlightView.frame = frame;
-}
-
 // ---------------------------------------------------------------------------------------------------------------- info
 
 - (void) info: (id) sender
@@ -1324,19 +1061,7 @@ skipAudio:
 	_infoViewIsOpen = YES;
 	_wasAutoPutaway = _autoPutaway;
 	_wasAutoPutawayMode = _autoPutawayMode;
-	
-	// Refresh the global scores.
-	if ((_localPlayer.usingGameCenter) && (_localPlayer.authenticated))
-	{
-		[_localPlayer retrieveLeaderboardScores: kMaxLeaderboardScores forCategory: @"com.softdorothy.labsolitaire.games_won" 
-				friendsOnly: _leaderboardFriendsOnly];
-	}
-	else
-	{
-		// Update the UI.
-		[self updateGlobalScoresInterface];
-	}
-	
+
 	// Initially begin with "about view" being displayed.
 	_currentInfoView = _aboutView;
 
@@ -1453,29 +1178,19 @@ skipAudio:
 		[_playSoundsButton setImage: [UIImage imageNamed: @"CheckYes"] forState: UIControlStateNormal];
 	else
 		[_playSoundsButton setImage: [UIImage imageNamed: @"CheckNo"] forState: UIControlStateNormal];
-	
-	// Leaderboard scope.
-	frame = _scopeSelectedImage.frame;
-	if (_leaderboardFriendsOnly)
-		frame.origin.x = CGRectGetMinX (_friendScopeButton.frame) + round ((CGRectGetWidth (_friendScopeButton.frame) - CGRectGetWidth (frame)) / 2.0);
+
+	// Personal score.
+	NSInteger gamesPlayed, gamesWon;
+	[_localPlayer retrieveLocalScore: &gamesPlayed forCategory: @"com.softdorothy.labsolitaire.games_played"];
+	[_localPlayer retrieveLocalScore: &gamesWon forCategory: @"com.softdorothy.labsolitaire.games_won"];
+	NSString *percentString;
+	if (gamesPlayed == 0)
+		percentString = @"—";
 	else
-		frame.origin.x = CGRectGetMinX (_allScopeButton.frame) + round ((CGRectGetWidth (_allScopeButton.frame) - CGRectGetWidth (frame)) / 2.0);
-	_scopeSelectedImage.frame = frame;
-	
-	if (_leaderboardFriendsOnly)
-	{
-		[_friendScopeButton setTitleColor: [UIColor colorWithWhite: 0.2 alpha: 1.0]  forState: UIControlStateNormal];
-		[_friendScopeButton setTitleColor: [UIColor colorWithWhite: 0.2 alpha: 1.0] forState: UIControlStateHighlighted];
-		[_allScopeButton setTitleColor: [UIColor colorWithRed: 0.0 green: 0.0 blue: 0.5 alpha: 0.8] forState: UIControlStateNormal];
-		[_allScopeButton setTitleColor: [UIColor colorWithRed: 0.72 green: 0.03 blue: 0.09 alpha: 1.0] forState: UIControlStateHighlighted];
-	}
-	else
-	{
-		[_friendScopeButton setTitleColor: [UIColor colorWithRed: 0.0 green: 0.0 blue: 0.5 alpha: 0.8] forState: UIControlStateNormal];
-		[_friendScopeButton setTitleColor: [UIColor colorWithRed: 0.72 green: 0.03 blue: 0.09 alpha: 1.0] forState: UIControlStateHighlighted];
-		[_allScopeButton setTitleColor: [UIColor colorWithWhite: 0.2 alpha: 1.0]  forState: UIControlStateNormal];
-		[_allScopeButton setTitleColor: [UIColor colorWithWhite: 0.2 alpha: 1.0] forState: UIControlStateHighlighted];
-	}
+		percentString = [NSString stringWithFormat: @"%ld", (long) lround (((double) gamesWon * 100.0) / (double) gamesPlayed)];
+	_personalScoreLabel.text = [NSString stringWithFormat:
+		NSLocalizedString (@"Games Won: %1$d of %2$d (%3$@%%)", @"Personal score summary in Settings tab"),
+		(int) gamesWon, (int) gamesPlayed, percentString];
 }
 
 // -------------------------------------------------------------------------------------- updateLocalStatisticsInterface
@@ -1750,47 +1465,21 @@ skipAudio:
 	}
 }
 
-// ---------------------------------------------------------------------------------------------- selectLeaderboardScope
+// ---------------------------------------------------------------------------------------------------- openGameCenter
 
-- (void) selectLeaderboardScope: (id) sender
+- (void) openGameCenter: (id) sender
 {
-	NSUserDefaults	*defaults;
-	
-	if ([sender tag] == 0)
-	{
-		// NOP.
-		if (_leaderboardFriendsOnly == YES)
-		{
-			return;
-		}
-		
-		_leaderboardFriendsOnly = YES;
-	}
-	else
-	{
-		// NOP.
-		if (_leaderboardFriendsOnly == NO)
-		{
-			return;
-		}
-		
-		_leaderboardFriendsOnly = NO;
-	}
-	
-	// Store auto-putaway preference.
-	defaults = [NSUserDefaults standardUserDefaults];
-	[defaults setObject: [NSNumber numberWithBool: _leaderboardFriendsOnly] forKey: @"LeaderboardScope"];
-	[defaults synchronize];
-	
 	if (_playSounds)
 	{
 		[[LSAudioEngine sharedEngine] playEffect: @"ClickOpen.wav"];
 	}
-	
-	// Update UI.
-	[self updateSettingsInterface];
-	[_localPlayer retrieveLeaderboardScores: kMaxLeaderboardScores forCategory: @"com.softdorothy.labsolitaire.games_won" 
-			friendsOnly: _leaderboardFriendsOnly];
+
+	if (_localPlayer.usingGameCenter && _localPlayer.authenticated)
+	{
+		GKGameCenterViewController *gcVC = [[GKGameCenterViewController alloc] initWithState: GKGameCenterViewControllerStateLeaderboards];
+		gcVC.gameCenterDelegate = self;
+		[self presentViewController: gcVC animated: YES completion: nil];
+	}
 }
 
 // ---------------------------------------------------------------------------------------------------- openGameOverView
@@ -2468,171 +2157,19 @@ done:
 
 - (void) localPlayerAuthenticated: (LocalPlayer *) player
 {
-	[_localPlayer retrieveLeaderboardScores: kMaxLeaderboardScores forCategory: @"com.softdorothy.labsolitaire.games_won" 
-			friendsOnly: _leaderboardFriendsOnly];
-	
-	// Fetch player's leaderboard score.
-	[_localPlayer retrieveLeaderboardScoreForLocalPlayerForCategory: @"com.softdorothy.labsolitaire.games_played"];
-	[_localPlayer retrieveLeaderboardScoreForLocalPlayerForCategory: @"com.softdorothy.labsolitaire.games_won"];
 }
 
 // --------------------------------------------------------------------------- localPlayer:failedAuthenticationWithError
-// This can be called if the player disconnects from 
-// GameCenter while we were in the background.
 
 - (void) localPlayer: (LocalPlayer *) player failedAuthenticationWithError: (NSError *) error
 {
-	// Empty leaderboard arrays.
-	[_leaderboardPlayerIDs removeAllObjects];
-	[_leaderboardGamesPlayed removeAllObjects];
-	[_leaderboardGamesWon removeAllObjects];
-	_leaderboardAliases = nil;
-	_playerLeaderboardIndex = NSNotFound;
-	
-	// Update the UI.
-	[self updateGlobalScoresInterface];
 }
 
-// -------------------------------------------------------------------------------------------- copyPlayerIDs:toOurArray
+// --------------------------------------------------------- localPlayer:needsToPresentAuthenticationViewController
 
-- (void) copyPlayerIDs: (NSArray *) players toOurArray: (NSMutableArray *) ourPlayers
+- (void) localPlayer: (LocalPlayer *) player needsToPresentAuthenticationViewController: (UIViewController *) viewController
 {
-	// Copy the leaderboard data.
-	[ourPlayers removeAllObjects];
-	if (players)
-		[ourPlayers addObjectsFromArray: players];
-}
-
-// ------------------------------------------------------------------------------------ copyLeaderboardScores:toOurArray
-
-- (void) copyLeaderboardScores: (NSArray *) scores toOurArray: (NSMutableArray *) ourScores
-{
-	// Copy the leaderboard data.
-	[ourScores removeAllObjects];
-	if (scores)
-		[ourScores addObjectsFromArray: scores];
-}
-
-// -------------------------------------------------------------- mergeLocalPlayerScoreWithLeaderboardScores:forCategory
-
-- (NSUInteger) mergeLocalPlayerScoreWithLeaderboardScores: (NSMutableArray *) leaderboard forCategory: (NSString *) category
-{
-	NSInteger	index = 0;
-	NSUInteger	playerIndex = NSNotFound;
-	
-	for (NSString *playerID in _leaderboardPlayerIDs)
-	{
-		if ([playerID isEqualToString: _localPlayer.playerID])
-		{
-			NSInteger	localScore;
-			
-			// Get local score.
-			[_localPlayer retrieveLocalScore: &localScore forCategory: category];
-			if ([leaderboard count] > index)
-			{
-				NSInteger	leaderboardValue;
-				
-				leaderboardValue = [[leaderboard objectAtIndex: index] integerValue];
-				if (localScore > leaderboardValue)
-					[leaderboard replaceObjectAtIndex: index withObject: [NSString stringWithFormat: @"%ld", (long) localScore]];
-				else if (leaderboardValue > localScore)
-					[_localPlayer postLocalScore: leaderboardValue forCategory: category];
-			}
-			else
-			{
-				[leaderboard addObject: [NSString stringWithFormat: @"%ld", (long) localScore]];
-			}
-			
-			playerIndex = index;
-			break;
-		}
-		
-		index += 1;
-	}
-	
-	return playerIndex;
-}
-
-// -------------------------------------------------------- localPlayer:retrievedLeaderboardScores:playerIDs:forCategory
-
-- (void) localPlayer: (LocalPlayer *) player retrievedLeaderboardScores: (NSArray *) scores 
-		playerIDs: (NSArray *) players forCategory: (NSString *) category
-{
-	if ([category isEqualToString: @"com.softdorothy.labsolitaire.games_won"])
-	{
-		// Copy the playerID data.
-		[self copyPlayerIDs: players toOurArray: _leaderboardPlayerIDs];
-		
-		// Copy the leaderboard data.
-		[self copyLeaderboardScores: scores toOurArray: _leaderboardGamesWon];
-		
-		// If our local score is greater than the leaderboard score, substitute our local score in the games-won array.
-		_playerLeaderboardIndex = [self mergeLocalPlayerScoreWithLeaderboardScores: _leaderboardGamesWon forCategory: category];
-		
-		// Fetch the number of games won for the leaderboard players.
-		[_localPlayer retrieveLeaderboardScoresForPlayerIDs: _leaderboardPlayerIDs forCategory: @"com.softdorothy.labsolitaire.games_played"];
-	}
-	else if ([category isEqualToString: @"com.softdorothy.labsolitaire.games_played"])
-	{
-		// Copy the leaderboard data.
-		[self copyLeaderboardScores: scores toOurArray: _leaderboardGamesPlayed];
-		
-		// If our local score is greater than the leaderboard score, substitute our local score in the games-played array.
-		if (_playerLeaderboardIndex != NSNotFound)
-			[self mergeLocalPlayerScoreWithLeaderboardScores: _leaderboardGamesPlayed forCategory: category];
-		
-		// Fetch the names for the player ID's.
-		if ((_leaderboardPlayerIDs) && ([_leaderboardPlayerIDs count] > 0))
-		{
-			[_localPlayer retrieveAliasesForPlayerIDs: _leaderboardPlayerIDs];
-		}
-		else
-		{
-			_leaderboardAliases = nil;
-			[self updateGlobalScoresInterface];
-		}
-	}
-}
-
-// ----------------------------------------------------------------- retrievedLeaderboardScoreForLocalPlayer:forCategory
-
-- (void) localPlayer: (LocalPlayer *) player retrievedLeaderboardScoreForLocalPlayer: (int64_t) score forCategory: (NSString *) category
-{
-	if ([category isEqualToString: @"com.softdorothy.labsolitaire.games_won"])
-	{
-		NSInteger	gamesWon;
-		
-		[_localPlayer retrieveLocalScore: &gamesWon forCategory: @"com.softdorothy.labsolitaire.games_won"];
-		if (score > gamesWon)
-			[_localPlayer postLocalScore: score forCategory: @"com.softdorothy.labsolitaire.games_won"];
-	}
-	else if ([category isEqualToString: @"com.softdorothy.labsolitaire.games_played"])
-	{
-		NSInteger	gamesPlayed;
-		
-		[_localPlayer retrieveLocalScore: &gamesPlayed forCategory: @"com.softdorothy.labsolitaire.games_played"];
-		if (score > gamesPlayed)
-			[_localPlayer postLocalScore: score forCategory: @"com.softdorothy.labsolitaire.games_played"];
-	}
-}
-
-// ---------------------------------------------------------------------------- localPlayer:retrievedAliasesForPlayerIDs
-
-- (void) localPlayer: (LocalPlayer *) player retrievedAliasesForPlayerIDs: (NSArray *) aliases
-{
-	_leaderboardAliases = nil;
-	if (aliases)
-		_leaderboardAliases = [aliases copy];
-	
-	// Update the UI.
-	[self updateGlobalScoresInterface];
-}
-
-// -------------------------------------------------------------------- localPlayer:failedRetrieveScoreForCategory:error
-
-- (void) localPlayer: (LocalPlayer *) player failedRetrieveScoreForCategory: (NSString *) category error: (NSError *) error
-{
-	printf ("localPlayer:failedRetrieveScoreForCategory:error: %s\n", [[error description] cStringUsingEncoding: NSUTF8StringEncoding]);
+	[self presentViewController: viewController animated: YES completion: nil];
 }
 
 // ------------------------------------------------------------------------ localPlayer:failedPostScoreForCategory:error
@@ -2642,11 +2179,11 @@ done:
 	printf ("localPlayer:failedPostScoreForCategory:error: %s\n", [[error description] cStringUsingEncoding: NSUTF8StringEncoding]);
 }
 
-// ----------------------------------------------------------------------- localPlayer:failedRetrieveAliasesForPlayerIDs
+#pragma mark ------ GKGameCenterControllerDelegate
 
-- (void) localPlayer: (LocalPlayer *) player failedRetrieveAliasesForPlayerIDs: (NSError *) error
+- (void) gameCenterViewControllerDidFinish: (GKGameCenterViewController *) gameCenterViewController
 {
-	printf ("localPlayer:failedRetrieveAliasesForPlayerIDs: %s\n", [[error description] cStringUsingEncoding: NSUTF8StringEncoding]);
+	[self dismissViewControllerAnimated: YES completion: nil];
 }
 
 @end
