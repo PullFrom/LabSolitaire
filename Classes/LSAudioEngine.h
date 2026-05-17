@@ -1,13 +1,13 @@
 // =====================================================================================================================
-//  LocalPlayer_priv.h
+//  LSAudioEngine.h
 // =====================================================================================================================
 
+#import <Foundation/Foundation.h>
 
-#import "LocalPlayer.h"
+@interface LSAudioEngine : NSObject
 
-
-@interface LocalPlayer (LocalPlayer_priv)
-
-- (void) authenticateLocalPlayer;
++ (instancetype)sharedEngine;
+- (void)preloadEffect:(NSString *)filename;
+- (void)playEffect:(NSString *)filename;
 
 @end

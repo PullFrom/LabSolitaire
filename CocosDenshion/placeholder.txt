@@ -1,3 +1,0 @@
-These files from CocosDenshion here:
-
-SimpleAudioEngine.mSimpleAudioEngine.hCocosDenshion.hCocosDenshion.mCDOpenALSupport.mCDOpenALSupport.hCDAudioManager.mCDConfig.hCDAudioManager.h

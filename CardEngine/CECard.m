@@ -34,8 +34,8 @@ static bool	_randomizedSeed = false;
 	NSUInteger		index = 0;
 	
 	// Param check.
-	require ((rank >= kCERankAce) && (rank <= kCERankKing), bail);
-	require ((suit >= kCESuitDiamonds) && (suit <= kCESuitClubs), bail);
+	__Require ((rank >= kCERankAce) && (rank <= kCERankKing), bail);
+	__Require ((suit >= kCESuitDiamonds) && (suit <= kCESuitClubs), bail);
 	
 	// Compute index.
 	index = (suit * 13) + rank;
@@ -52,7 +52,7 @@ bail:
 	CERank		rank = 0;
 	
 	// Param check.
-	require ((index >= 1) && (index <= 52), bail);
+	__Require ((index >= 1) && (index <= 52), bail);
 	
 	// Modulo 13.
 	rank = ((index - 1) % 13) + 1;
@@ -69,7 +69,7 @@ bail:
 	CESuit		suit = 0;
 	
 	// Param check.
-	require ((index >= 1) && (index <= 52), bail);
+	__Require ((index >= 1) && (index <= 52), bail);
 	
 	// Divide by 13.
 	suit = (index - 1) / 13;
@@ -187,7 +187,7 @@ bail:
 	
 	// Super.
 	myself = [super init];
-	require (myself, bail);
+	__Require (myself, bail);
 	
 	// Assign instance variable.
 	if (index == 0)
@@ -201,14 +201,6 @@ bail:
 bail:
 	
 	return myself;
-}
-
-// ------------------------------------------------------------------------------------------------------------- dealloc
-
-- (void) dealloc
-{
-	// Super.
-	[super dealloc];
 }
 
 // ---------------------------------------------------------------------------------------------------------------- suit

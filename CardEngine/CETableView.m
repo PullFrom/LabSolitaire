@@ -18,6 +18,18 @@ static NSUndoManager	*_gSharedUndoManager = nil;
 
 @synthesize portraitImagePath = _portraitImagePath;
 @synthesize landscapeImagePath = _landscapeImagePath;
+@synthesize landscape = _landscape;
+
+// --------------------------------------------------------------------------------------------------------- setLandscape
+
+- (void) setLandscape: (BOOL) landscape
+{
+	if (_landscape != landscape)
+	{
+		_landscape = landscape;
+		[self setNeedsDisplay];
+	}
+}
 
 // ----------------------------------------------------------------------------------------------- sharedCardUndoManager
 
@@ -39,7 +51,7 @@ static NSUndoManager	*_gSharedUndoManager = nil;
 	CGRect	frame;
 	
 	// Get application frame.
-	frame = [[UIScreen mainScreen] applicationFrame];
+	frame = [[UIScreen mainScreen] bounds];
 	
 	if (orientation == UIInterfaceOrientationPortrait)
 	{
@@ -119,23 +131,11 @@ static NSUndoManager	*_gSharedUndoManager = nil;
 	
 	// Super.
 	myself = [super initWithFrame: frame];
-	require (myself, bail);
+	__Require (myself, bail);
 	
 bail:
 	
 	return myself;
-}
-
-// ------------------------------------------------------------------------------------------------------------- dealloc
-
-- (void) dealloc
-{
-	// Release instance variables.
-	[_portraitImagePath release];
-	[_landscapeImagePath release];
-	
-	// Super.
-	[super dealloc];
 }
 
 // -------------------------------------------------------------------------------------------------------- drawGradient
@@ -168,10 +168,7 @@ bail:
 
 - (void) drawRect: (CGRect) rect
 {
-	UIInterfaceOrientation	orientation;
-	
-	orientation = [[UIApplication sharedApplication] statusBarOrientation];
-	if (UIInterfaceOrientationIsPortrait (orientation))
+	if (!_landscape)
 	{
 		if (_portraitImagePath)
 			[[UIImage imageNamed: _portraitImagePath] drawAtPoint: CGPointMake (0.0, 0.0)];
@@ -271,7 +268,6 @@ bail:
 	if (dictionary)
 	{
 		[defaults setObject: dictionary forKey: identifier];
-		[dictionary release];
 	}
 	
 	return [defaults synchronize];
